@@ -2,4 +2,4 @@
 WDI Project 3, name pending
 
 
-Contributors: James
+Contributors: James, Peter
