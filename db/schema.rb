@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20150828205020) do
     t.integer "poi_id"
   end
 
+  add_index "trips_to_pois", ["poi_id"], name: "index_trips_to_pois_on_poi_id", using: :btree
+  add_index "trips_to_pois", ["trip_id"], name: "index_trips_to_pois_on_trip_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "first_name"
@@ -54,6 +57,9 @@ ActiveRecord::Schema.define(version: 20150828205020) do
     t.integer "user_id"
     t.integer "poi_id"
   end
+
+  add_index "users_to_pois", ["poi_id"], name: "index_users_to_pois_on_poi_id", using: :btree
+  add_index "users_to_pois", ["user_id"], name: "index_users_to_pois_on_user_id", using: :btree
 
   add_foreign_key "trips", "locations"
   add_foreign_key "trips", "users"
