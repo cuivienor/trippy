@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829164239) do
+ActiveRecord::Schema.define(version: 20150829185120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,13 @@ ActiveRecord::Schema.define(version: 20150829164239) do
   end
 
   create_table "pois", force: :cascade do |t|
-    t.string "name"
-    t.string "google_place"
-    t.string "latlong"
+    t.string  "name"
+    t.string  "google_place"
+    t.string  "latlong"
+    t.integer "location_id"
   end
+
+  add_index "pois", ["location_id"], name: "index_pois_on_location_id", using: :btree
 
   create_table "pois_trips", force: :cascade do |t|
     t.integer "trip_id"
@@ -61,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150829164239) do
     t.string "email"
   end
 
+  add_foreign_key "pois", "locations"
   add_foreign_key "trips", "locations"
   add_foreign_key "trips", "users"
 end
