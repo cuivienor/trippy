@@ -1,3 +1,4 @@
+
 class TripsController < ApplicationController
 
     def index
@@ -32,3 +33,4 @@ class TripsController < ApplicationController
         params.require(:trip).permit(:map_image,:user_id, :location_id)
       end
 end
+
