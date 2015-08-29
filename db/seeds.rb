@@ -10,8 +10,8 @@
 
 location1 = Location.create({name: "New York", google_place: "ChIJOwg_06VPwokRYv534QaPC8g", latlong: "40.7127837, -74.0059413"})
 
-pois1 = Poi.create({name: "St. Paul's Chapel", google_place:"ChIJ-wHkrBlawokRjCiym7MbolM", latlong:"40.71695, -74.008935"})
-pois2 = Poi.create({name: "Midtown Comics Downtown", google_place:"ChIJhb4pSz1awokRMqAUarOuIB8", latlong:"40.714652, -74.004648"})
+poi1 = Poi.create({name: "St. Paul's Chapel", google_place:"ChIJ-wHkrBlawokRjCiym7MbolM", latlong:"40.71695, -74.008935"})
+poi2 = Poi.create({name: "Midtown Comics Downtown", google_place:"ChIJhb4pSz1awokRMqAUarOuIB8", latlong:"40.714652, -74.004648"})
 
 
 user1= User.create ({username: "sally", first_name: "sally", last_name: "smith", password_digest: "password", email:"sally@email.com"})
