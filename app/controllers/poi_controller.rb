@@ -1,2 +1,0 @@
-class PoiController < ApplicationController
-end
