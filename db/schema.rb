@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828205020) do
+ActiveRecord::Schema.define(version: 20150829164239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20150828205020) do
     t.string "latlong"
   end
 
+  create_table "pois_trips", force: :cascade do |t|
+    t.integer "trip_id"
+    t.integer "poi_id"
+  end
+
+  add_index "pois_trips", ["poi_id"], name: "index_pois_trips_on_poi_id", using: :btree
+  add_index "pois_trips", ["trip_id"], name: "index_pois_trips_on_trip_id", using: :btree
+
+  create_table "pois_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "poi_id"
+  end
+
+  add_index "pois_users", ["poi_id"], name: "index_pois_users_on_poi_id", using: :btree
+  add_index "pois_users", ["user_id"], name: "index_pois_users_on_user_id", using: :btree
+
   create_table "trips", force: :cascade do |t|
     t.string  "map_image"
     t.integer "user_id"
@@ -37,14 +53,6 @@ ActiveRecord::Schema.define(version: 20150828205020) do
   add_index "trips", ["location_id"], name: "index_trips_on_location_id", using: :btree
   add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
-  create_table "trips_to_pois", force: :cascade do |t|
-    t.integer "trip_id"
-    t.integer "poi_id"
-  end
-
-  add_index "trips_to_pois", ["poi_id"], name: "index_trips_to_pois_on_poi_id", using: :btree
-  add_index "trips_to_pois", ["trip_id"], name: "index_trips_to_pois_on_trip_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "first_name"
@@ -52,14 +60,6 @@ ActiveRecord::Schema.define(version: 20150828205020) do
     t.string "password_digest"
     t.string "email"
   end
-
-  create_table "users_to_pois", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "poi_id"
-  end
-
-  add_index "users_to_pois", ["poi_id"], name: "index_users_to_pois_on_poi_id", using: :btree
-  add_index "users_to_pois", ["user_id"], name: "index_users_to_pois_on_user_id", using: :btree
 
   add_foreign_key "trips", "locations"
   add_foreign_key "trips", "users"
