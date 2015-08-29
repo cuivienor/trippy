@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     redirect_to sessions_path
   end
 
+    def show
+        @user = User.find params[:id]
+        @trips = @user.trips
+    end
+
   private
 
   def user_params
@@ -21,3 +26,4 @@ class UsersController < ApplicationController
   end
   
 end
+

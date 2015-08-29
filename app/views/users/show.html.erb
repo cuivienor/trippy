@@ -1,0 +1,17 @@
+<%= form_tag "/users/:id/locations/:id/show" do %>
+    Destination:
+    <%= search_field_tag :location %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
+Saved Trips:
+
+    <ul>
+        <% @trips.each do |trip| %>
+    <li>
+        <%= link_to trip.location_id, user_location_trip_path(trip) %>
+        <%= link_to 'Edit', edit_user_location_trip_path(trip) %>
+        <%= link_to 'Delete', user_location_trip_path(trip), {method: :delete} %>
+    </li>
+
+<% end %> 
