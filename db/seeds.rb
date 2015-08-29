@@ -21,12 +21,12 @@ trip1 = Trip.create({map_image: "image.img", user_id: user1.id, location_id: loc
 
 
 
-trip1.poi << poi1
-trip1.poi << poi2
+trip1.pois << poi1
+trip1.pois << poi2
 
 
-user1.poi << poi1
-user1.poi << poi2
+user1.pois << poi1
+user1.pois << poi2
 
 
 
