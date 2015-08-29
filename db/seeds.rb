@@ -14,6 +14,7 @@ poi1 = Poi.create({name: "St. Paul's Chapel", google_place:"ChIJ-wHkrBlawokRjCiy
 poi2 = Poi.create({name: "Midtown Comics Downtown", google_place:"ChIJhb4pSz1awokRMqAUarOuIB8", latlong:"40.714652, -74.004648"})
 
 
+
 user1= User.create ({username: "sally", first_name: "sally", last_name: "smith", password_digest: "password", email:"sally@email.com"})
 
 trip1 = Trip.create({map_image: "image.img", user_id: user1.id, location_id: location1.id})
