@@ -13,12 +13,8 @@ class UsersController < ApplicationController
   end
 
     def show
-        @user = User.find params[:id]
+        @user = User.first
         @user_id = @user.id
-        @location = Location.create({name: params[:location],google_place: "place", latlong: "latlon"})
-        @location.user_id = @user.id
-        @trips = Trip.all
-        # binding.pry
     end
 
   private
