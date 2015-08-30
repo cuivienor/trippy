@@ -5,6 +5,7 @@ module Google
   require 'uri'
 
   TextSearchBase = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
+  TextDirectionBase = "https://maps.googleapis.com/maps/api/directions/json?"
   APIKEY = ENV['GOOGLEAPIKEY']
   
   def getLocation(name)
@@ -18,8 +19,12 @@ module Google
     #return array of POIS [{place_id, name}]
   end
 
-  def getDirections(pois_array_of_place_ids)
-    # return array of instructions (strings)
+  def getDirection(starting,ending,array_of_place_ids)
+    waypoints = array_of_place_ids.split(" ")
+    waypoints = waypoints.join("|place_id:")
+    params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{ending}", 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' => APIKEY)
+    link = TextDirectionBase + params
+    response = HTTParty.get(link)
   end
   
 end
