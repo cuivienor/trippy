@@ -1,1 +1,15 @@
-index.html.erb
+
+<h3>Points of Interest in </h3>
+
+<%= form_tag @trips do %>
+	
+	<% @pois.each do |poi| %>
+		<input type="checkbox">
+		<%= render 'poi', poi: poi %>
+		<br>
+	<% end%>
+	<br>
+
+<%= submit_tag 'make that trip bitch' %>
+
+<% end %>
