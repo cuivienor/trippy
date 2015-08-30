@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     redirect_to sessions_path
   end
 
+    def show
+        @user = User.first
+        @user_id = @user.id
+    end
+
   private
 
   def user_params
@@ -25,3 +30,4 @@ class UsersController < ApplicationController
   end
   
 end
+

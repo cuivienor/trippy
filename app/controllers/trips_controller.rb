@@ -11,3 +11,4 @@ class TripsController < ApplicationController
 	
 
 end
+
