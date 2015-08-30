@@ -24,6 +24,7 @@ module Google
     waypoints = waypoints.join("|place_id:")
     params = URI.encode_www_form('origin' => starting, 'destination' => ending, 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' = APIKEY)
     link = TextDirectionBase + params
+    binding.pry
     response = HTTParty.get(link)
   end
   
