@@ -6,7 +6,9 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params)
-    redirect_to root_path
+    flash[:notice] = "User Successfully Created"
+    flash[:username] = user_params[:username]
+    redirect_to sessions_path
   end
 
   private

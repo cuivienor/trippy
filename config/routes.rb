@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   
   get '/sessions/new', to: 'sessions#new', as: :new_sessions
   post '/sessions', to: 'sessions#create'
-  delete '/sessions' => 'sessions#destroy'
+  delete '/sessions', to: 'sessions#destroy'
+  get '/sessions', to: 'sessions#autoLogIn'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
