@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150829185120) do
     t.string "name"
     t.string "google_place"
     t.string "latlong"
+    t.integer "user_id"
   end
 
   create_table "pois", force: :cascade do |t|

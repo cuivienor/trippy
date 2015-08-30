@@ -1,5 +1,6 @@
-<%= form_tag "/users/:id/locations/:id/show" do %>
+<%= form_tag @user, url: user_locations_path do %>
     Destination:
+    <%= hidden_field_tag @user_id=@user.id %>
     <%= search_field_tag :location %>
     <%= submit_tag "Search" %>
   <% end %>
@@ -9,9 +10,9 @@ Saved Trips:
     <ul>
         <% @trips.each do |trip| %>
     <li>
-        <%= link_to trip.location_id, user_location_trip_path(trip) %>
-        <%= link_to 'Edit', edit_user_location_trip_path(trip) %>
-        <%= link_to 'Delete', user_location_trip_path(trip), {method: :delete} %>
+        <%= link_to trip.location_id, user_path(trip) %>
+        <%= link_to 'Edit', edit_user_path(trip) %>
+        <%= link_to 'Delete', user_path(trip), {method: :delete} %>
     </li>
 
 <% end %> 
