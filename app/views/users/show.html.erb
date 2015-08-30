@@ -1,6 +1,7 @@
+<!-- TODO Change route to dynamically get params! -->
+
 <%= form_tag('/users/1/locations') do %>
     <%= label_tag(:q, "Destination:") %>
     <%= search_field_tag :q %>
     <%= submit_tag "Search" %>
   <% end %>
-
