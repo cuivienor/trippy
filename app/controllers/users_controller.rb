@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    # TODO Add validation for duplicate things!
     User.create(user_params)
     flash[:notice] = "User Successfully Created"
     flash[:username] = user_params[:username]
