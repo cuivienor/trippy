@@ -10,7 +10,8 @@
     <body>
         <div class="container">
             <div class="user-bar">
-                <%= link_to 'Create User',  %>
+              <%= link_to 'Create User', new_user_path %>
+              <%= link_to 'Log In', new_sessions_path %>
             </div>
             <%= yield %>
         </div>
