@@ -11,7 +11,10 @@ module Google
     query = URI.encode_www_form('query' => name, 'key' => APIKEY)
     link = TextSearchBase + query
     response = HTTParty.get(link)
-    # parse response to have only place_id, lat,long, name
+    name = response["results"][0]["name"].to_s
+    google_loc = response["results"][0]["geometry"]["location"]["lat"].to_s + "," + response["results"][0]["geometry"]["location"]["lng"].to_s
+    place_id = response["results"][0]["place_id"].to_s
+    location_params = {name: name, latlong: google_loc, google_place: place_id}
   end
 
   def getPois(place_id)

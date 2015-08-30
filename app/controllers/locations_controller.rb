@@ -1,5 +1,9 @@
+require 'google'
+
 class LocationsController < ApplicationController
     
+    include Google
+
     def index
         @user = User.find params[:id]
         @location = params[:location]
@@ -11,12 +15,8 @@ class LocationsController < ApplicationController
         @user_id = @user.id
         p "Name: #{@name}"
         p "User_id: #{@user_id}"
-        response = HTTParty.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + @name + "&key=" + ENV["GOOGLE_KEY"])
-        @google_loc = response["results"][0]["geometry"]["location"]["lat"].to_s + "," + response["results"][0]["geometry"]["location"]["lng"].to_s
-        @place_id = response["results"][0]["place_id"].to_s
-        @location = Location.create({name: @name, google_place: @place_id, latlong: @google_loc, user_id: @user_id})
-        binding.pry
-        # redirect_to user_location_path
+        @location = Location.create(getLocation(@name))
+        redirect_to user_location_path
     end
 
     def show
