@@ -3,7 +3,7 @@
 
 <%= form_tag @trips do %>
 	
-	<% @pois.each do |poi| %>
+	<% @map.each do |poi| %>
 		<input type="checkbox">
 		<%= render 'poi', poi: poi %>
 		<br>
