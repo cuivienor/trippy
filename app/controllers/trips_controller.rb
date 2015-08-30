@@ -8,7 +8,14 @@ class TripsController < ApplicationController
 
 	# The results page after compiling the data. Displays map and directions
 	def new
-		response = HTTParty.get("https://maps.googleapis.com/maps/api/directions/json?origin=#{start}&destination=#{ending}&mode=walking&waypoints=optimize=true|#{way points, pipes between each}&sensor=false&key=AIzaSyCw2wYoFzAnvsFrxkolKpuht5JkM3UeIZ0")
+		#This needs to be set in the heroku profile
+		# Set heroku env like this "$ heroku config:add 'key'='value'"
+		#Google API key = AIzaSyCw2wYoFzAnvsFrxkolKpuht5JkM3UeIZ0
+		api = ENV["GOOGLEAPI"]
+		#for multiple waypoints, save all into an array, then split and join with "|"
+		response = HTTParty.get("https://maps.googleapis.com/maps/api/directions/json?origin=#{start}&destination=#{ending}&mode=walking&waypoints=optimize=true|#{way points, pipes between each}&sensor=false&key=#{api}")
+
+		
 	end
 
 	# Saves the info from results page
