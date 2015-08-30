@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # Handles auto log in upon user creation
   def autoLogIn
     if flash[:notice] == "User Successfully Created"
       session[:user_id] = User.find_by(username: flash[:username]).id
