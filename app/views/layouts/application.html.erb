@@ -10,8 +10,13 @@
     <body>
         <div class="container">
             <div class="user-bar">
-              <%= link_to 'Create User', new_user_path %>
-              <%= link_to 'Log In', new_sessions_path %>
+            <% if session[:user_id] %>
+                Hello, <%= User.find(session[:user_id]).first_name %>
+                <%= link_to('Log out', '/sessions', method: :delete) %>
+            <% else %>
+                <%= link_to 'Create User', new_user_path %>
+                <%= link_to 'Log In', new_sessions_path %>
+            <% end %>
             </div>
             <%= yield %>
         </div>
