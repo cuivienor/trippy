@@ -5,7 +5,7 @@ module Google
   require 'uri'
 
   TextSearchBase = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
-  APIKEY = ENV['GOOGLEAPIKEY'] || "stuff"
+  APIKEY = ENV['GOOGLEAPIKEY']
   
   def getLocation(name)
     query = URI.encode_www_form('query' => name, 'key' => APIKEY)
