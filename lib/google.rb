@@ -54,11 +54,12 @@ module Google
 
 
   def getDetails(place_id)
-    query = URI.encode_www_form('query' => place_id, 'key' => APIKEY)
+    query = URI.encode_www_form('placeid' => place_id, 'key' => APIKEY)
     link = TextDetailsBase + query
     response = HTTParty.get(link)
-    name = response["result"][0]["name"].to_s
-    google_loc = response["result"][0]["geometry"]["location"]["lat"].to_s  "," + response["result"][0]["geometry"]["location"]["lng"].to_s
+    name = response["result"]["name"]
+    binding.pry
+    google_loc = response["result"]["geometry"]["location"]["lat"].to_s + "," + response["result"]["geometry"]["location"]["lng"].to_s
     details_params = {name: name, latlong: google_loc, google_place: place_id}
   end
   
