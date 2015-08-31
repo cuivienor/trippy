@@ -22,17 +22,22 @@ class LocationsController < ApplicationController
     end
 
     def show
-        @location = Location.find params[:user_id]
-        @user = User.find params[:id]
-        @user_id = @user.id
-        @name = @location.name
-        response = HTTParty.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + @name + "&key=" + @key)
-        json = JSON.parse(response.body)
-        p json.results[0].geometry.location
+        @location = Location.find(params[:id])
+        @user = User.find params[:user_id]
+        # @user_id = @user.id
+        # @name = @location.name
+        # response = HTTParty.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + @name + "&key=" + @key)
+        # json = JSON.parse(response.body)
+        # p json.results[0].geometry.location
         # @user = User.find params[:user_id]
         # @trips = Trip.find params[:trip_id]
         # @pois = Trip.pois
         # @image = Image.find params[:map_image]
+
+
+        @suggestions = getPois(@location.latlong)
+
+        
     end
 
     private
