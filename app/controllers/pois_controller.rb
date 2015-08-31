@@ -9,16 +9,11 @@ include Google
 		@loc = Location.find_by(id: params[:location_id])
 		@pois = @user.locations.find(location_id= @loc.id).pois
 
-		# @pois = User.find_by(id: params[:user_id]).find(Location.find_by(id: params[:location_id])).Poi.all
 
 	 end
 
 
 	def show
-		# @user = User.find_by(id: params[:user_id])
-		# @loc = Location.find_by(id: params[:location_id])
-		# @pois = @user.pois.all
-
 
 
 	end
@@ -29,8 +24,9 @@ include Google
 
 
 	def create
-		
-		binding.pry
+		google_places = params[:google_place]
+		redirect_to new_user_location_trip_path
+
 	end
 
 
