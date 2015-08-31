@@ -58,7 +58,6 @@ module Google
     link = TextDetailsBase + query
     response = HTTParty.get(link)
     name = response["result"]["name"]
-    binding.pry
     google_loc = response["result"]["geometry"]["location"]["lat"].to_s + "," + response["result"]["geometry"]["location"]["lng"].to_s
     details_params = {name: name, latlong: google_loc, google_place: place_id}
   end
