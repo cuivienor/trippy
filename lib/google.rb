@@ -62,4 +62,15 @@ module Google
     details_params = {name: name, latlong: google_loc, google_place: place_id}
   end
   
+
+  def getStart(address)
+    query = query = URI.encode_www_form('query' => address, 'key' => APIKEY)
+    link = TextSearchBase + query
+    response = HTTParty.get(link)
+    place_id = response["results"][0]["place_id"]
+
+  end
+
 end
+
+

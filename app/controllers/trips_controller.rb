@@ -8,6 +8,8 @@ class TripsController < ApplicationController
 	include Google
 
 	def index 
+		@start = getStart("10 E 21st st new york")
+		binding.pry
 	end
 
 	def new
