@@ -1,0 +1,19 @@
+<!-- Image -->
+<img src="<%= @link %>">
+
+<!-- Step by step directions -->
+<h3> So you want to see:</h3>
+<ul>
+<% @stops.each do |stop| %>
+<li> <%= stop %> </li>
+<% end %>
+</ul>
+
+</br>
+
+<ol>
+<% @directions.each do |step| %>
+<li> <%= raw (step) %> </li> </br>
+<% end %>
+</ol>
+
