@@ -28,6 +28,18 @@ module Google
     link = PoiSearch + query
     response = HTTParty.get(link)["results"]
 
+    suggestions = []
+    response.each do |e|
+      sugg = {}
+      sugg["name"] = e["name"]
+      sugg["google_place"] = e["place_id"]
+      sugg["latlong"] = e["geometry"]["location"]["lat"].to_s+","+e["geometry"]["location"]["lng"].to_s
+
+      suggestions << sugg 
+    end    
+
+    suggestions
+
     #return array of POIS [{place_id, name}]
   end
 

@@ -1,4 +1,9 @@
 
 <%= poi["name"] %>
-<br>
+
+<%= hidden_field_tag :name, value: poi["name"] %>
+<%= hidden_field_tag :place_id, value: poi["place_id"] %>
+<%= hidden_field_tag :lat, value: poi["geometry"]["location"]["lat"] %>
+<%= hidden_field_tag :long, value: poi["geometry"]["location"]["lat"] %>
+
 

@@ -1,0 +1,13 @@
+<!--add dynamic location to h3 tag-->
+
+<h3>Points of Interest in <%= Location %> </h3> 
+
+<%= form_tag user_location_pois_path(@user, @location) do |f| %>
+	<% @suggestions.each do |sugg| %>
+		<%= render partial: '/pois/poi_form', locals: {poi: sugg} %>
+
+		<% end %>
+
+	<%= submit_tag 'make that trip bitch' %>
+
+<% end %>
