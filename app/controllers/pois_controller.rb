@@ -42,7 +42,8 @@ class PoisController < ApplicationController
         poi = Poi.find_by(google_place: poi.google_place)
         @user.pois << poi if !@user.pois.exists?(id: poi.id)
       end
-      redirect_to user_location_pois(@user, @location)
+      binding.pry
+      redirect_to user_location_pois_path(@user, @location)
     end
   end
 end
