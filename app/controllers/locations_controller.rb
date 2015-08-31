@@ -36,6 +36,7 @@ class LocationsController < ApplicationController
 
 
         @suggestions = getPois(@location.latlong)
+
         
     end
 
