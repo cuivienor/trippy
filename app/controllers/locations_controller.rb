@@ -22,9 +22,16 @@ class LocationsController < ApplicationController
     end
 
     def show
-        @location = Location.find(params[:id])
         @user = User.find params[:user_id]
+
+        @location = Location.find(params[:id])
+
         @suggestions = getPois(@location.latlong)
+
+        # binding.pry
+
+        # redirect_to user_location_pois_path(@user, @location)
+
     end
 
     private
