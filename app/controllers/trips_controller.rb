@@ -1,5 +1,10 @@
 require 'google'
 
+# This needs to be set in the heroku profile
+# 		Set heroku env like this "$ heroku config:add 'key'='value'"
+# 		Google API key = AIzaSyCw2wYoFzAnvsFrxkolKpuht5JkM3UeIZ0
+# 		APIKEY = ENV['GOOGLEAPIKEY']
+
 class TripsController < ApplicationController
 	include Google
 
@@ -13,7 +18,7 @@ class TripsController < ApplicationController
     @places = params[:google_place]
 		#Arguments for getDirections still not set, current view is in beta
 		starting = getLocation(params[:start])
-	  points = getDirection(starting["google_place"],params[:google_places])
+	  points = getDirection(starting[:google_place],params[:google_place])
 	  legs = points["routes"][0]["legs"]
 		poly = points["routes"][0]["overview_polyline"]["points"]
 
@@ -41,7 +46,6 @@ class TripsController < ApplicationController
 	  end
 	  @stops.shift
 	  @stops.pop
-	  binding.pry
 	end
 
 	def create
