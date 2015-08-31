@@ -1,5 +1,2 @@
-
-<%= check_box_tag "pois[]", value="#{poi}" %>
-
-<%= poi["name"] %>
-<br>
+<%= check_box_tag "place_ids[]", value="#{poi['google_place']}" %>
+<%= poi["name"] %> <br>
