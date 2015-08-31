@@ -13,8 +13,6 @@ class LocationsController < ApplicationController
         @name = params[:q]
         @user = User.first
         @user_id = @user.id
-        p "Name: #{@name}"
-        p "User_id: #{@user_id}"
         @location = Location.create(getLocation(@name))
         redirect_to user_location_path
     end

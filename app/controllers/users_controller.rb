@@ -16,10 +16,9 @@ class UsersController < ApplicationController
     redirect_to sessions_path
   end
 
-    def show
-        @user = User.first
-        @user_id = @user.id
-    end
+  def show
+    @user_id = params[:id]
+  end
 
   private
 
