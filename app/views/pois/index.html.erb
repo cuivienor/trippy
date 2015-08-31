@@ -1,9 +1,16 @@
 <!--add dynamic location to h3 tag-->
 
-<h3>Here's your the places you've bookmarked</h3>
+<h3>Here's the places you've bookmarked</h3>
 
-<% @pois.each do |poi| %>
-	<%= poi.name %>
 
-<br>
-	<% end %>
+<%= form_tag user_location_pois_path do %>
+	<% @pois.each do |poi| %>
+		<%= render partial: 'poi', locals: {poi: poi} %>
+	
+		<% end %>
+	<br>
+	<%= submit_tag 'git it gurl' %>
+
+
+	
+<% end %>
