@@ -6,6 +6,7 @@ module Google
 
   TextSearchBase = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
   TextDirectionBase = "https://maps.googleapis.com/maps/api/directions/json?"
+  TextDetailsBase = "https://maps.googleapis.com/maps/api/place/details/json?"
   APIKEY = ENV['GOOGLEAPIKEY']
   PoiSearch = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
   
@@ -49,6 +50,16 @@ module Google
     params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{ending}", 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' => APIKEY)
     link = TextDirectionBase + params
     response = HTTParty.get(link)
+  end
+
+
+  def getDetails(place_id)
+    query = URI.encode_www_form('query' => place_id, 'key' => APIKEY)
+    link = TextDetailsBase + query
+    response = HTTParty.get(link)
+    name = response["result"][0]["name"].to_s
+    google_loc = response["result"][0]["geometry"]["location"]["lat"].to_s  "," + response["result"][0]["geometry"]["location"]["lng"].to_s
+    details_params = {name: name, latlong: google_loc, google_place: place_id}
   end
   
 end
