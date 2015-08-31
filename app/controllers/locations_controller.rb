@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
         # @image = Image.find params[:map_image]
 
 
-        @suggestions = getPois("40.7127837,-74.0059413")
+        @suggestions = getPois(@location.latlong)
         
     end
 
