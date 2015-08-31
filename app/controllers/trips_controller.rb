@@ -8,7 +8,8 @@ class TripsController < ApplicationController
 
 	def new
 		#Arguments for getDirections still not set, current view is in beta
-	  points = getDirection("ChIJE1liW6tZwokRxxmy1Lz8Gd0","ChIJE1liW6tZwokRxxmy1Lz8Gd0",["ChIJa1QZIAJZwokRySwnNKYyMno","ChIJtcaxrqlZwokRfwmmibzPsTU","ChIJr3_8XKlZwokRcXIKk8iTh1Q","ChIJmQJIxlVYwokRLgeuocVOGVU"])
+		starting = getLocation(params[:start])
+	  points = getDirection(starting["google_place"],params[:google_places])
 	  legs = points["routes"][0]["legs"]
 		poly = points["routes"][0]["overview_polyline"]["points"]
 
