@@ -44,10 +44,10 @@ module Google
     #return array of POIS [{place_id, name}]
   end
 
-  def getDirection(starting,ending,array_of_place_ids)
+  def getDirection(starting,array_of_place_ids)
     waypoints = array_of_place_ids.split(" ")
     waypoints = waypoints.join("|place_id:")
-    params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{ending}", 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' => APIKEY)
+    params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{starting}", 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' => APIKEY)
     link = TextDirectionBase + params
     response = HTTParty.get(link)
   end
