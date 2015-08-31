@@ -7,8 +7,7 @@ class PoisController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     @loc = Location.find_by(id: params[:location_id])
-    @pois = @user.locations.find(location_id= @loc.id).pois
-
+    @pois = @user.locations.find(location_id = @loc.id).pois
   end
 
 
@@ -19,10 +18,10 @@ class PoisController < ApplicationController
   def new	
   end
 
-  def create
-    google_places = params[:google_place]
-    redirect_to new_user_location_trip_path
-  end
+  # def create
+  #   google_places = params[:google_place]
+  #   redirect_to new_user_location_trip_path
+  # end
 
   def create
     @user = User.find(params[:user_id])
@@ -38,8 +37,7 @@ class PoisController < ApplicationController
         poi = Poi.find_by(google_place: poi.google_place)
         @user.pois << poi if !@user.pois.exists?(id: poi.id)
       end
-      binding.pry
-      redirect_to user_location_pois_path(@user, @location)
     end
+    redirect_to user_location_pois_path(@user, @location)
   end
 end
