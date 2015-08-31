@@ -2,7 +2,6 @@ require 'google'
 
 # This needs to be set in the heroku profile
 # 		Set heroku env like this "$ heroku config:add 'key'='value'"
-# 		Google API key = AIzaSyCw2wYoFzAnvsFrxkolKpuht5JkM3UeIZ0
 # 		APIKEY = ENV['GOOGLEAPIKEY']
 
 class TripsController < ApplicationController
