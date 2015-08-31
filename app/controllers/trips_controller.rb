@@ -7,6 +7,10 @@ class TripsController < ApplicationController
 	end
 
 	def new
+		@user = User.find(params[:user_id])
+    @location = Location.find(params[:location_id])
+    @start = params[:start]
+    @places = params[:google_place]
 		#Arguments for getDirections still not set, current view is in beta
 	  points = getDirection("ChIJE1liW6tZwokRxxmy1Lz8Gd0","ChIJE1liW6tZwokRxxmy1Lz8Gd0",["ChIJa1QZIAJZwokRySwnNKYyMno","ChIJtcaxrqlZwokRfwmmibzPsTU","ChIJr3_8XKlZwokRcXIKk8iTh1Q","ChIJmQJIxlVYwokRLgeuocVOGVU"])
 	  legs = points["routes"][0]["legs"]
@@ -36,10 +40,11 @@ class TripsController < ApplicationController
 	  end
 	  @stops.shift
 	  @stops.pop
-
+	  binding.pry
 	end
 
 	def create
+
 	end
 	
 

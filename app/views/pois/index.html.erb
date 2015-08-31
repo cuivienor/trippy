@@ -3,7 +3,9 @@
 <h3>Here's the places you've bookmarked</h3>
 
 
-<%= form_tag user_location_pois_path do %>
+<%= form_tag new_user_location_trip_path, method:'get' do %>
+	<%= text_field_tag 'start', nil, placeholder:'Where are you staying?' %>
+	<br>
 	<% @pois.each do |poi| %>
 		<%= render partial: 'poi', locals: {poi: poi} %>
 	
