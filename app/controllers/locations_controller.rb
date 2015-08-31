@@ -10,13 +10,15 @@ class LocationsController < ApplicationController
     end
 
     def create
-        @name = params[:q]
-        @user = User.first
-        @user_id = @user.id
-        p "Name: #{@name}"
-        p "User_id: #{@user_id}"
-        @location = Location.create(getLocation(@name))
-        redirect_to user_location_path
+        name = params[:q]
+        location = Location.new(getLocation(name))
+        if location.valid?
+          location.save
+        else
+          location = Location.find_by(google_place: location.google_place)
+        end
+        user = User.find(params[:user_id])
+        redirect_to user_location_path(user, location)
     end
 
     def show
