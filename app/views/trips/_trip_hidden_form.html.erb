@@ -1,5 +1,5 @@
 <%= form_for [@user, @location, @trip] do |f|%>
     <%= f.hidden_field :map_image, value: map_image %>
-    <%= f.hidden_field "stops[]", value: stops %>
+    <%= f.hidden_field :stops, value: stops %>
     <%= f.submit "Save" %>
 <% end %>
