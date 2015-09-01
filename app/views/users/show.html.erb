@@ -7,3 +7,9 @@
   <% end %>
 
 
+<% if @logged_in %>
+	<% @trips.each do |trip| %>
+		<%= trip.location.name %>
+		<br>
+	<% end %>
+<% end %>
