@@ -56,9 +56,23 @@ class TripsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # TODO trip_params sanitization does not seem to get stops and trips
+    # Need to look into it
+    trip_details = trip_params
+    trip_details[:stops] = params[:trip][:stops]
+    trip_details[:directions] = params[:trip][:directions]
+    trip_details[:user_id] = params[:user_id]
+    trip_details[:location_id] = params[:location_id]
+    Trip.create(trip_details)
+    redirect_to user_path(params[:user_id])
   end
-  
+
+
+  def trip_params
+    params
+      .require(:trip)
+      .permit(:map_image, :stops, :directions)
+  end
 
 end
 
