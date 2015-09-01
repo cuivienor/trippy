@@ -1,0 +1,12 @@
+<div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">HOME</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">LOCATIONS</a>
+	        <ul class="pure-menu-children">
+	        	<!-- Loop to show all locations -->
+	          <li class="pure-menu-item"><a href="#" class="pure-menu-link">NYC</a></li>
+	          </ul>
+          </li>
+        <li class="pure-menu-item"><%= link_to('LOGOUT', '/sessions', method: :delete) %></li>
+    </ul>
+</div>
