@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if @user.errors.any?  %>
   <p style="color: red"><%= pluralize(@user.errors.count, "error")%> when creating new user:</p>
  	<ul>
  	 <% @user.errors.full_messages.each do |message| %>

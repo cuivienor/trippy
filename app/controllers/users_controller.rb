@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:show, :new, :create]
-
-
-
+  skip_before_action :require_login, only: [:new, :create]
+  
   def new
     @user = User.new
-
   end
 
   def create
-    # TODO Add validation for duplicate things!
     @user = User.create(user_params)
     if @user.save
       flash[:notice] = "User Successfully Created"
@@ -23,12 +19,6 @@ class UsersController < ApplicationController
 
   def show
     @user_id = params[:id]
-    @logged_in = logged_in? && @user_id
-    if logged_in?
-      @trips = User.find_by(id: params[:id]).trips
-    end
-
-
   end
 
   private

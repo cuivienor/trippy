@@ -1,7 +1,6 @@
 require 'google'
 
 class PoisController < ApplicationController
-skip_before_action :require_login, only: [:index]
 
   include Google
 

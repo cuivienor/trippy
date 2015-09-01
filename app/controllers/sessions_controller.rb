@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :autoLogIn, :login_cred]
+  skip_before_action :require_login
 
   def new
   end
@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   # Handles auto log in upon user creation
   def autoLogIn
+    binding.pry
     if flash[:notice] == "User Successfully Created"
       session[:user_id] = User.find_by(username: flash[:username]).id
     end
