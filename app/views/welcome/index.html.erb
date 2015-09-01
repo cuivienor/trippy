@@ -2,5 +2,12 @@
 <%= form_tag('/welcome/search', method: 'get') do %>
 
 	<%= render 'form' %>
+<br>
+
+Here are trips other users have created:
+	<br>
+	<%= render '/trips/trip_random' %>
+	<%= render '/trips/trip_random' %>
+	<%= render '/trips/trip_random' %>
 
 <% end %>
