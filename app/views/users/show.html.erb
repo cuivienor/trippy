@@ -2,10 +2,19 @@
 	<%= render 'welcome/form' %>
 <% end %>
 
-
-<% if @logged_in %>
+Here are the trips you've created:
+<br>
 	<% @trips.each do |trip| %>
 		<%= trip.location.name %>
 		<br>
 	<% end %>
-<% end %>
+
+
+<br>
+
+Here are trips other users have created:
+	<br>
+	<%= render '/trips/trip_random' %>
+	<%= render '/trips/trip_random' %>
+	<%= render '/trips/trip_random' %>
+

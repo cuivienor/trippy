@@ -19,6 +19,11 @@ class UsersController < ApplicationController
 
   def show
     @user_id = params[:id]
+    @trips = User.find_by(id: params[:id]).trips
+
+    if @trips
+      @rand = Trip.order("RANDOM()").first
+    end
   end
 
   private
