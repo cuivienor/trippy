@@ -60,7 +60,11 @@ module Google
     response = HTTParty.get(link)
     name = response["result"]["name"]
     google_loc = response["result"]["geometry"]["location"]["lat"].to_s + "," + response["result"]["geometry"]["location"]["lng"].to_s
-    photoreference = response["result"]["photos"][0]["photo_reference"]
+    if response["result"]["photos"]
+      photoreference = response["result"]["photos"][0]["photo_reference"]
+    else
+      photoreference = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png"
+    end
     img_url = getImage(photoreference)
     details_params = {name: name, latlong: google_loc, google_place: place_id, img_url: img_url}
   end
