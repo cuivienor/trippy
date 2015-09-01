@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  # before_action :require_login
+  before_action :require_login
 
   # user auth helpers
   def logged_in?
@@ -19,16 +19,16 @@ class ApplicationController < ActionController::Base
   end
 
  
-  # private
+  private
  
-  # def require_login
-  #   if !authorized?
-  #     flash[:error] = "User not authorized"
-  #     if !logged_in?
-  #       redirect_to new_user_path
-  #     else 
-  #       redirect_to user_path(session[:user_id])
-  #     end
-  #   end
-  # end
+  def require_login
+    if !authorized?
+      flash[:error] = "User not authorized"
+      if !logged_in?
+        redirect_to new_user_path
+      else 
+        redirect_to user_path(session[:user_id])
+      end
+    end
+  end
 end
