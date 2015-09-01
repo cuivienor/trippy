@@ -18,11 +18,7 @@ skip_before_action :require_login, only: [:index]
 
   def new	
   end
-
-  # def create
-  #   google_places = params[:google_place]
-  #   redirect_to new_user_location_trip_path
-  # end
+  
 
   def create
     @user = User.find(params[:user_id])
