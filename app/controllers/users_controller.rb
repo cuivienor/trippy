@@ -24,8 +24,12 @@ class UsersController < ApplicationController
 
   def show
     @user_id = params[:id]
-    @logged_in = authorized?
-    @trips = User.find_by(params[:user_id]).trips
+    @logged_in = logged_in? && @user_id
+    @trips = User.find_by(id: params[:id]).trips
+
+
+
+>>>>>>> 4eaab415ac0ea1391d2a56fbc5bc256be77bcf4d
   end
 
   private

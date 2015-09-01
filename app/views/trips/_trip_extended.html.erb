@@ -1,0 +1,17 @@
+<img src="<%= map_image %>">
+
+<h3> So you want to see:</h3>
+
+<ul>
+    <% stops.each do |stop| %>
+        <%= render partial: "stop", locals: {stop: stop} %>
+    <% end %>
+</ul>
+
+</br>
+
+<ol>
+    <% directions.each do |step| %>
+        <%= render partial: "step", locals: {step: step} %>
+    <% end %>
+</ol>
