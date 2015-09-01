@@ -1,7 +1,6 @@
 require 'google'
 
 class LocationsController < ApplicationController
-skip_before_action :require_login, only: [:index, :create, :show]    
 
     include Google
 
