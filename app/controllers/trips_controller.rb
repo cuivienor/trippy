@@ -17,13 +17,12 @@ class TripsController < ApplicationController
     @location = Location.find(params[:location_id])
     @places = params[:google_place]
     @start = params[:start]
-    if @start == ""
-    	binding.pry
+
+    # Validation for start text field because the form is not creating/saving
+    # Redirects back to POI selection page if not filled in
+    if @start == "" || @places == nil
       redirect_to :back
-      puts "empy"
     else
-      puts "nice"
-    
 		#Arguments for getDirections still not set, current view is in beta
 		starting = getLocation(params[:start])
 	  points = getDirection(starting[:google_place],params[:google_place])
@@ -33,11 +32,13 @@ class TripsController < ApplicationController
 	  all_points = []
 	  #'pins' maps out the points from start to finish
 	  pins = 1
+
 	  legs.each do |leg|
 	  	marker = "markers=color:green|label:#{pins}|#{leg["end_location"]["lat"]},#{leg["end_location"]["lng"]}"
 	  	all_points.push(marker)
 	  	pins+=1
 	  end
+
 	  #split and join to put marker points in correct format
     markers = all_points.split(" ")
     markers = markers.join("&")
@@ -45,12 +46,13 @@ class TripsController < ApplicationController
 	  #Stores all step by step directions in an array to get passed to template
 	  @directions = []
 	  @stops = []
+
 	  legs.each do |leg|
 	  @stops.push(leg["end_address"])
 	  	leg["steps"].each do |steps|
 	  	@directions.push(steps["html_instructions"])
-	  end
-	  end
+	  		end
+	  	end
 	  @stops.shift
 	  @stops.pop
 	  end
