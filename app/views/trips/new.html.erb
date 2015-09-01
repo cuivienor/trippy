@@ -1,21 +1,7 @@
 <!-- Image -->
-<img src="<%= @link %>">
 
-<!-- Step by step directions -->
-<h3> So you want to see:</h3>
-<ul>
-<% @stops.each do |stop| %>
-<li> <%= stop %> </li>
-<% end %>
-</ul>
+<h1>Here is your trip summary</h1>
 
-</br>
+<%= render partial: "trip_extended", locals: @trip_params %>
 
-<ol>
-<% @directions.each do |step| %>
-<li> <%= raw (step) %> </li> </br>
-<% end %>
-</ol>
-
-<%= submit_tag "Save" %>
-
+<%= render partial: "trip_hidden_form", locals: @trip_params %>

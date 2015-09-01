@@ -1,0 +1,10 @@
+<%= form_for [@user, @location, @trip] do |f|%>
+    <%= f.hidden_field :map_image, value: map_image %>
+    <% stops.each do |stop| %>
+        <%= f.hidden_field :stops, :multiple => true, value: stop %>
+    <% end %>
+    <% directions.each do |direction| %>
+        <%= f.hidden_field :directions, :multiple => true, value: direction %>
+    <% end %>
+    <%= f.submit "Save" %>
+<% end %>
