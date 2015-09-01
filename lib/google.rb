@@ -7,6 +7,7 @@ module Google
   TextSearchBase = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
   TextDirectionBase = "https://maps.googleapis.com/maps/api/directions/json?"
   TextDetailsBase = "https://maps.googleapis.com/maps/api/place/details/json?"
+  PhotoBase = "https://maps.googleapis.com/maps/api/place/photo?"
   APIKEY = ENV['GOOGLEAPIKEY']
   PoiSearch = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
   
@@ -23,20 +24,20 @@ module Google
   def getPois(latlong)
       poi = 'points_of_interest'
       rank = 'prominence'
-      radius = 500
+      radius = 5000
 
-    query = URI.encode_www_form('location' => latlong, 'types' => poi, 'radius' => radius, 'rankby' => rank, 'key' => APIKEY)
+      query = URI.encode_www_form('location' => latlong, 'types' => poi, 'radius' => radius, 'rankby' => rank, 'key' => APIKEY)
     link = PoiSearch + query
     response = HTTParty.get(link)["results"]
-
     suggestions = []
     response.each do |e|
-      sugg = {}
-      sugg["name"] = e["name"]
-      sugg["google_place"] = e["place_id"]
-      sugg["latlong"] = e["geometry"]["location"]["lat"].to_s+","+e["geometry"]["location"]["lng"].to_s
-
-      suggestions << sugg 
+      unless e['types'].include?('locality') 
+        sugg = {}
+        sugg["name"] = e["name"]
+        sugg["google_place"] = e["place_id"]
+        sugg["latlong"] = e["geometry"]["location"]["lat"].to_s+","+e["geometry"]["location"]["lng"].to_s
+        suggestions << sugg
+      end
     end    
 
     suggestions
@@ -59,8 +60,11 @@ module Google
     response = HTTParty.get(link)
     name = response["result"]["name"]
     google_loc = response["result"]["geometry"]["location"]["lat"].to_s + "," + response["result"]["geometry"]["location"]["lng"].to_s
-    details_params = {name: name, latlong: google_loc, google_place: place_id}
+    photoreference = response["result"]["photos"][0]["photo_reference"]
+    img_url = getImage(photoreference)
+    details_params = {name: name, latlong: google_loc, google_place: place_id, img_url: img_url}
   end
+
   
 
   def getStart(address)
@@ -68,7 +72,12 @@ module Google
     link = TextSearchBase + query
     response = HTTParty.get(link)
     place_id = response["results"][0]["place_id"]
+  end
 
+  def getImage(photoreference)
+    # photoreference from output getDetails, set maxwidth to preferred size
+    query = URI.encode_www_form('maxwidth' => "400", "photoreference" => photoreference, 'key' => APIKEY)
+    img_url = PhotoBase + query
   end
 
 end
