@@ -47,11 +47,16 @@ class TripsController < ApplicationController
     end
     @stops.shift
     @stops.pop
-    binding.pry
+    @trip_params = {
+      map_image: @link,
+      stops: @stops,
+      directions: @directions      
+    }
+    @trip = Trip.new
   end
 
   def create
-
+    binding.pry
   end
   
 
