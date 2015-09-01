@@ -8,13 +8,17 @@ skip_before_action :require_login, only: [:index, :search]
   def index
   	if logged_in?
   		redirect_to user_path(session[:user_id])
-  	else
-  		redirect_to user_path(0)
+  	# else
+  	# 	root_path
   	end
   end
 
   def search
-    response = getLocation(params[:location])
+  	name = params[:q]
+		@location = getLocation(name)
+		if @location 
+			@suggestions = getPois(@location[:latlong])
+		end
   end
 
 end
