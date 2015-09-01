@@ -1,14 +1,17 @@
 <div class ="pure-u-1">
     <div class="pure-menu pure-menu-horizontal">
     <ul class="pure-u-1 pure-menu-list">
-        <li class="pure-menu-item"><%= link_to'HOME', user_path(session[:user_id])%></li>
+        <!-- <li class="pure-menu-item"><%= link_to'HOME', user_path(session[:user_id])%></li> -->
+        <li class="pure-menu-item"><a href="/users/<%=session[:user_id]%>"class="pure-menu-link">HOME</a>
         <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">LOCATIONS</a>
         <ul class="pure-menu-children">
-        	<!-- Loop to show all locations -->
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">NYC</a></li>
+        	<% locales = User.find_by(id: session[:user_id]).locations%>
+            <% locales.each do |locale| %>
+          <li class="pure-menu-item"><a href="SHOW PAGE" class="pure-menu-link"><%=locale.name%></a></li>
+            <% end %>
           </ul>
           </li>
-        <li class="pure-menu-item"><%= link_to('LOGOUT', '/sessions', method: :delete) %></li>
+          <li class="pure-menu-item"><%= link_to('LOGOUT', '/sessions', method: :delete, class: "pure-menu-link")%></li>
     </ul>
 </div>
 </div>

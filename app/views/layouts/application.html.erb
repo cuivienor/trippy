@@ -5,16 +5,14 @@
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
-       <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<!--        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"> -->
     </head>
     <body>
         <div class = "pure-g">
                 <% if session[:user_id] %>
                    <%= render partial: 'layouts/log_navbar' %>
                 <% else %>
-                    <!-- Show this if not logged in -->
-                    <%= link_to 'Create User', new_user_path %>
-                    <%= link_to 'Log In', new_sessions_path %>
+                    <%= render partial: 'layouts/logout_navbar' %>
                 <% end %>
             </div>
             <%= yield %>
