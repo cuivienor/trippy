@@ -4,7 +4,8 @@
 
 
 <%= form_tag new_user_location_trip_path, method:'get' do %>
-	<%= text_field_tag 'start', nil, placeholder:'Where are you staying?' %>
+	<%= label_tag 'Where are you staying?' %>
+	<%= text_field_tag 'start', nil, placeholder:'Address, City, State/Country', size: 50 %>
 	<br>
 	<% @pois.each do |poi| %>
 		<%= render partial: 'poi', locals: {poi: poi} %>
