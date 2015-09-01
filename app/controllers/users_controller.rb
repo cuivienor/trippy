@@ -29,7 +29,6 @@ class UsersController < ApplicationController
 
 
 
->>>>>>> 4eaab415ac0ea1391d2a56fbc5bc256be77bcf4d
   end
 
   private
