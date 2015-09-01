@@ -2,7 +2,7 @@
 
 	<% @suggestions.each do |sugg| %>
 		<%= sugg["name"] %> <br>
-		<% end %>
+	<% end %>
 
 <%= form_tag new_user_path, method:'get' do %>
 <%= button_tag 'Must Login to Continue' %>

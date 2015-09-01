@@ -16,8 +16,8 @@ skip_before_action :require_login, only: [:index, :search]
   def search
   	name = params[:q]
 		@location = getLocation(name)
-		if location 
-			@suggestions = getPois(@location)
+		if @location 
+			@suggestions = getPois(@location[:latlong])
 		end
   end
 
