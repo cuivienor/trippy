@@ -15,14 +15,20 @@ class TripsController < ApplicationController
 	def new
 		@user = User.find(params[:user_id])
     @location = Location.find(params[:location_id])
-    @start = params[:start]
     @places = params[:google_place]
+    @start = params[:start]
+    if @start == ""
+    	binding.pry
+      redirect_to :back
+      puts "empy"
+    else
+      puts "nice"
+    
 		#Arguments for getDirections still not set, current view is in beta
 		starting = getLocation(params[:start])
 	  points = getDirection(starting[:google_place],params[:google_place])
 	  legs = points["routes"][0]["legs"]
 		poly = points["routes"][0]["overview_polyline"]["points"]
-
 	  #Grabs the latitude and longitude of all points provided by the directions API and concats them for use in the static map
 	  all_points = []
 	  #'pins' maps out the points from start to finish
@@ -47,6 +53,7 @@ class TripsController < ApplicationController
 	  end
 	  @stops.shift
 	  @stops.pop
+	  end
 	end
 
 	def create

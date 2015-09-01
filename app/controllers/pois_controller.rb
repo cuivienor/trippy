@@ -30,7 +30,7 @@ class PoisController < ApplicationController
       poiAttr = getDetails(place_id)
       poiAttr[:location_id] = params[:location_id]
       poi = Poi.new(poiAttr)
-      if poi.valid?
+      if poi.valid? 
         poi.save
         @user.pois << poi
       else
