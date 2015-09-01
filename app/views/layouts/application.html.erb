@@ -9,13 +9,8 @@
     </head>
     <body>
         <div class = "pure-g">
-        <div class="container">
-            <!-- User Navigation Bar ... Present on all pages? -->
-            <div class="user-bar">
                 <% if session[:user_id] %>
-                    <!-- Show this is logged in -->
-                    Hello, <%= User.find(session[:user_id]).first_name %>
-                    <%= link_to('Log out', '/sessions', method: :delete) %>
+                   <%= render partial: 'layouts/log_navbar' %>
                 <% else %>
                     <!-- Show this if not logged in -->
                     <%= link_to 'Create User', new_user_path %>

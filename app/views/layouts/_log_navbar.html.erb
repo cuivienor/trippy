@@ -1,12 +1,14 @@
-<div class="pure-menu pure-menu-horizontal">
-    <ul class="pure-menu-list">
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">HOME</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">LOCATIONS</a>
-	        <ul class="pure-menu-children">
-	        	<!-- Loop to show all locations -->
-	          <li class="pure-menu-item"><a href="#" class="pure-menu-link">NYC</a></li>
-	          </ul>
+<div class ="pure-u-1">
+    <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-u-1 pure-menu-list">
+        <li class="pure-menu-item"><%= link_to'HOME', user_path(session[:user_id])%></li>
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">LOCATIONS</a>
+        <ul class="pure-menu-children">
+        	<!-- Loop to show all locations -->
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">NYC</a></li>
+          </ul>
           </li>
         <li class="pure-menu-item"><%= link_to('LOGOUT', '/sessions', method: :delete) %></li>
     </ul>
+</div>
 </div>
