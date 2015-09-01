@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
   end
 
   def create
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user_id = params[:id]
+      @trips = User.find_by(params[:user_id]).trips
   end
 
   private

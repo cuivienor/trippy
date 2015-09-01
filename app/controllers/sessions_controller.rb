@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     if flash[:notice] == "User Successfully Created"
       session[:user_id] = User.find_by(username: flash[:username]).id
     end
-      redirect_to root_path
+      redirect_to user_path(session[:user_id])
   end
 
   def destroy

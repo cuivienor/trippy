@@ -5,3 +5,9 @@
     <%= search_field_tag :q %>
     <%= submit_tag "Search" %>
   <% end %>
+
+
+<% @trips.each do |trip| %>
+	<%= trip.name %>
+	<br>
+<% end %>

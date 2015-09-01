@@ -17,12 +17,13 @@ class LocationsController < ApplicationController
         else
           location = Location.find_by(google_place: location.google_place)
         end
-        user = User.find(params[:user_id])
-        redirect_to user_location_path(user, location)
+
+        # user = User.find(params[:user_id])
+        redirect_to user_location_path(params[:user_id], location)
     end
 
     def show
-        @user = User.find params[:user_id]
+        @user_id = params[:user_id]
 
         @location = Location.find(params[:id])
 
