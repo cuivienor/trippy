@@ -10,8 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user?
-    binding.pry
-    session[:user_id] == params[:user_id].to_i
+    if params[:user_id]
+      session[:user_id] == params[:user_id].to_i
+    else
+      session[:user_id] == params[:id].to_i
+    end
   end
 
   def authorized?
@@ -25,7 +28,7 @@ class ApplicationController < ActionController::Base
     if !authorized?
       flash[:error] = "User not authorized"
       if !logged_in?
-        redirect_to new_user_path
+        redirect_to root_path
       else 
         redirect_to user_path(session[:user_id])
       end

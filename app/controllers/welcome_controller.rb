@@ -8,9 +8,7 @@ skip_before_action :require_login, only: [:index, :search]
   def index
   	if logged_in?
   		redirect_to user_path(session[:user_id])
-  	# else
-  	# 	root_path
-  	end
+    	end
   end
 
   def search
