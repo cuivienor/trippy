@@ -1,6 +1,7 @@
 require 'google'
 
 class WelcomeController < ApplicationController
+skip_before_action :require_login, only: [:index, :search]
 
   include Google
   

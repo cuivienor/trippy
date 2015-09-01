@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:show, :new, :create]
 
-  def show
-  end
 
 
   def new
@@ -25,8 +24,9 @@ class UsersController < ApplicationController
   def show
     @user_id = params[:id]
     @logged_in = logged_in? && @user_id
-    @trips = User.find_by(id: params[:id]).trips
-
+    if logged_in?
+      @trips = User.find_by(id: params[:id]).trips
+    end
 
 
   end
