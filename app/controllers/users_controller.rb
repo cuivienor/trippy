@@ -19,7 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user_id = params[:id]
-      @trips = User.find_by(params[:user_id]).trips
+    @logged_in = authorized?
+    @trips = User.find_by(params[:user_id]).trips
   end
 
   private
