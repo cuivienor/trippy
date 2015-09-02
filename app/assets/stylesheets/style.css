@@ -7,10 +7,8 @@ body {
   margin: 0 0 100px;
   height: 100%;
   width: 100%;
-  /*change back to shift-bg*/
-  -webkit-animation: bg 90s ease infinite;
-  /*change back to shift-bg*/
-  animation: bg 90s ease infinite;
+  -webkit-animation: shift-bg 90s ease infinite;
+  animation: shift-bg 90s ease infinite;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -74,4 +72,8 @@ body {
     bottom: 0;
     height: 180px;
     width: 100%;
+}
+
+.banner{
+    color:white;
 }
