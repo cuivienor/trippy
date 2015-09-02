@@ -1,3 +1,7 @@
 <h1>Your Trips</h1>
 
-
+<% @trips.each do |trip| %>
+    <div class="trips-overview pure-g">
+        <% render partial: "pois/poi", collection: trip.pois %>
+    </div>
+<% end %>
