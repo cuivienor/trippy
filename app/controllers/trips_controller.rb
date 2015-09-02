@@ -9,7 +9,6 @@ class TripsController < ApplicationController
 
   def index
     @trips = User.find(session[:user_id]).trips.where(location_id: params[:location_id])
-    binding.pry
     render layout: "trips_index"
   end
 
