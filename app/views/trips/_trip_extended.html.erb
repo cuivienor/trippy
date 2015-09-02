@@ -1,17 +1,27 @@
+<div class="pure-u-1" >
 <img src="<%= map_image %>">
 
-<h3> So you want to see:</h3>
 
+<h2>You'll be seeing:</h2>
+<div class="pure-u-1-3">
 <ul>
     <% stops.each do |stop| %>
         <%= render partial: "stop", locals: {stop: stop} %>
     <% end %>
 </ul>
-
+</div>
+</br>
 </br>
 
-<ol>
+
+	<div class="pure-menu pure-menu-scrollable custom-restricted">
+    <a class="pure-menu-link pure-menu-heading">Directions</a>
+    <ol class="pure-menu-list">
+    <% counter = 1 %>
     <% directions.each do |step| %>
-        <%= render partial: "step", locals: {step: step} %>
+			 <li class="pure-menu-item"><%=counter%>. <%= raw(step) %></li></br>
+       <% counter +=1 %>
     <% end %>
-</ol>
+  </ol>
+</div>
+
