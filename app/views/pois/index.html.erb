@@ -1,18 +1,18 @@
 <!--add dynamic location to h3 tag-->
 
-<h3 class="pure-u-1">Here's the places you've bookmarked in <%=@loc.name %></h3>
+<h1 class="pure-u-1">Here's the places you've bookmarked in <%=@loc.name %></h1>
 
 <div class="pure-u-1">
-<%= form_tag new_user_location_trip_path, method:'get' do %>
+<%= form_tag(new_user_location_trip_path, method:'get', class: "pure-form pure-form-stacked") do %>
     <%= label_tag 'Where are you staying?' %>
-    <%= text_field_tag 'start', nil, placeholder:'Address, City, State/Country', size: 50 %>
+    <%= text_field_tag 'start', nil, placeholder:'Address, City, State/Country', size: 50, class: "pure-input-rounded" %>
     <br>
     <% @pois.each do |poi| %>
 	<%= render partial: 'poi_form', locals: {poi: poi} %>
 	
     <% end %>
     <br>
-    <%= submit_tag 'git it gurl' %>
+    <%= submit_tag 'git it gurl', class: "pure-button pure-button-primary" %>
 
 <% end %>
 </div>
