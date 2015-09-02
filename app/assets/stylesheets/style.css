@@ -16,31 +16,35 @@ body {
 }
 
 @-webkit-keyframes shift-bg{
-  0%  { background-image: url('http://wallpapersmap.com/wp-content/uploads/2013/05/sunset-city-backgrounds.jpg'); }
-  10% { background-image: url('http://host2post.com/server13/photos/f4rk4zzT-31dxM~/beautiful-city-background-currently-3-47-5.jpg');  }
-  20% { background-image: url('http://cdn.bigbangfish.com/city/179857-chicago-city-wallpaper-widescreen.jpg'); }
-  30% { background-image: url('http://macwallpapers.xyz/wp-content/uploads/2015/08/night-city-lights-hd-wallpapers-for-mac-pack.jpg'); }
-  40% { background-image: url('http://cdn.wallwuzz.com/uploads/wallpapers-city-photography-backgrounds-wallwuzz-hd-wallpaper-21018.jpg'); }
-  50% { background-image: url('https://wallpaperscraft.com/image/switzerland_city_height_river_building_737_1920x1080.jpg'); }
-  60% { background-image: url('http://cdn.bigbangfish.com/city/678886-miami-city-skyline.jpg'); }
-  70% { background-image: url('http://wallpoper.com/images/00/17/44/03/anime-city_00174403.jpg'); }
-  80% { background-image: url('https://c1.staticflickr.com/3/2862/10613506655_cc8a61694d_b.jpg'); }
-  90% { background-image: url('http://createapk.com/project/2014/09/walla/vatican-city-wallpaper-hd/image/164835-vatican-city-wallpaper-hd.jpg'); }
-  100% { background-image: url('http://www.hdwallpapersnew.net/wp-content/uploads/2015/08/beautiful-shanghai-widescreen-high-definition-wallpaper-for-desktop-background-download-images.jpg'); }
+  0%  { background-image: url('http://i.jootix.com/o/unnamed--976979fcaf.jpg'); }
+  10% { background-image: url('http://hdwallpapersfit.com/wp-content/uploads/2015/03/christ-the-redeemer-rio-de-janeiro-world-hd-wallpaper-1920x1200-1132.jpg');  }
+  20% { background-image: url('http://www.wallpaperawesome.com/wallpapers-awesome/wallpapers-cities-metropolis-monuments-palaces-architecture-churches-awesome/wallpaper-moscow-red-square-russia.jpg'); }
+  30% { background-image: url('http://img0.mxstatic.com/wallpapers/916166a350eec8c6a7a93eb073998e75_large.jpeg'); }
+  40% { background-image: url('http://www.hdwallpapersnew.net/wp-content/uploads/2015/05/beautiful-singapore-full-screen-high-resolution-download-wallpaper-pictures-free.jpg'); }
+  50% { background-image: url('http://eskipaper.com/images/france-wallpaper-17.jpg'); }
+  60% { background-image: url('http://kindawarped.com/wp-content/uploads/wallpaper-761760.jpg'); }
+  70% { background-image: url('http://images7.alphacoders.com/445/445913.jpg'); }
+  80% { background-image: url('http://ewallpapers-hub.com/wp-content/uploads/2014/08/prague-wallpaper.jpg'); }
+  90% { background-image: url('http://travelhdwallpapers.com/wp-content/uploads/2014/04/Wall-of-China-4.jpg'); }
+  100% { background-image: url('http://modernmagazin.com/wp-content/uploads/2014/06/times-square-new-york-.jpg'); }
 }
 
 @keyframes shift-bg {
-  0%  { background-image: url('http://wallpapersmap.com/wp-content/uploads/2013/05/sunset-city-backgrounds.jpg'); }
-  10% { background-image: url('http://host2post.com/server13/photos/f4rk4zzT-31dxM~/beautiful-city-background-currently-3-47-5.jpg');  }
-  20% { background-image: url('http://cdn.bigbangfish.com/city/179857-chicago-city-wallpaper-widescreen.jpg'); }
-  30% { background-image: url('http://macwallpapers.xyz/wp-content/uploads/2015/08/night-city-lights-hd-wallpapers-for-mac-pack.jpg'); }
-  40% { background-image: url('http://cdn.wallwuzz.com/uploads/wallpapers-city-photography-backgrounds-wallwuzz-hd-wallpaper-21018.jpg'); }
-  50% { background-image: url('https://wallpaperscraft.com/image/switzerland_city_height_river_building_737_1920x1080.jpg'); }
-  60% { background-image: url('http://cdn.bigbangfish.com/city/678886-miami-city-skyline.jpg'); }
-  70% { background-image: url('http://wallpoper.com/images/00/17/44/03/anime-city_00174403.jpg'); }
-  80% { background-image: url('https://c1.staticflickr.com/3/2862/10613506655_cc8a61694d_b.jpg'); }
-  90% { background-image: url('http://createapk.com/project/2014/09/walla/vatican-city-wallpaper-hd/image/164835-vatican-city-wallpaper-hd.jpg'); }
-  100% { background-image: url('http://www.hdwallpapersnew.net/wp-content/uploads/2015/08/beautiful-shanghai-widescreen-high-definition-wallpaper-for-desktop-background-download-images.jpg'); }
+0%  { background-image: url('http://i.jootix.com/o/unnamed--976979fcaf.jpg'); }
+  10% { background-image: url('http://hdwallpapersfit.com/wp-content/uploads/2015/03/christ-the-redeemer-rio-de-janeiro-world-hd-wallpaper-1920x1200-1132.jpg');  }
+  20% { background-image: url('http://www.wallpaperawesome.com/wallpapers-awesome/wallpapers-cities-metropolis-monuments-palaces-architecture-churches-awesome/wallpaper-moscow-red-square-russia.jpg'); }
+  30% { background-image: url('http://img0.mxstatic.com/wallpapers/916166a350eec8c6a7a93eb073998e75_large.jpeg'); }
+  40% { background-image: url('http://www.hdwallpapersnew.net/wp-content/uploads/2015/05/beautiful-singapore-full-screen-high-resolution-download-wallpaper-pictures-free.jpg'); }
+  50% { background-image: url('http://eskipaper.com/images/france-wallpaper-17.jpg'); }
+  60% { background-image: url('http://kindawarped.com/wp-content/uploads/wallpaper-761760.jpg'); }
+  70% { background-image: url('http://images7.alphacoders.com/445/445913.jpg'); }
+  80% { background-image: url('http://ewallpapers-hub.com/wp-content/uploads/2014/08/prague-wallpaper.jpg'); }
+  90% { background-image: url('http://travelhdwallpapers.com/wp-content/uploads/2014/04/Wall-of-China-4.jpg'); }
+  100% { background-image: url('http://modernmagazin.com/wp-content/uploads/2014/06/times-square-new-york-.jpg'); }
+}
+
+.login{
+    background-color: rgba(0,0,0,.5);
 }
 
 .container {
@@ -73,6 +77,15 @@ body {
     text-align:right;
     color: white;
     margin-right:250px;
+}
+
+.form-thing{
+    text-align:right;
+    color: white;
+}
+
+.login-input{
+    margin-right: 20px;
 }
 
 .footer {
@@ -126,13 +139,8 @@ body {
 
 .trips-overview:hover{
     opacity: 1
-
+}
                  
 .search{
     margin: 10px 0px 0px 10px;
-}
-
-
-.login{
-    background-color: rgba(0,0,0,.5);
 }
