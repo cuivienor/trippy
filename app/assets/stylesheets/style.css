@@ -140,7 +140,23 @@ body {
 .trips-overview:hover{
     opacity: 1
 }
-                 
+
+
 .search{
     margin: 10px 0px 0px 10px;
+}
+
+.login{
+    background-color: rgba(0,0,0,.5);
+}
+
+.ribbon {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 250px;
+    white-space:nowrap;
+}
+
+.photo-cont {
+    display: inline-block;
 }
