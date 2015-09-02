@@ -10,7 +10,17 @@ module Google
   PhotoBase = "https://maps.googleapis.com/maps/api/place/photo?"
   APIKEY = ENV['GOOGLEAPIKEY']
   PoiSearch = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-  
+  StaticSearch = "https://maps.googleapis.com/maps/api/staticmap?"
+
+
+def getStatic(latlongs, location)
+  query = URI.encode_www_form('center' => location, 'zoom' => '13', 'size' => '600x400', 'markers' => 'blue|label:S|'+latlongs, 'key' => APIKEY)
+  link = StaticSearch + query
+  # response = HTTParty.get(link)
+end
+
+
+
   def getLocation(name)
     query = URI.encode_www_form('query' => name, 'key' => APIKEY)
     link = TextSearchBase + query

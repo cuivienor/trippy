@@ -1,5 +1,16 @@
-<%= check_box_tag "google_place[]", value="#{poi.google_place}" %>
 
-<%= poi.name %>
-<br>
+
+<div class="photo-box pure-u-1-6">
+
+	<img class="pure-u-1-1" style="height:200px; width:200px" src="<%=poi.img_url %>" alt="<%=poi.name %>">
+
+	<aside class="photo-box-caption">
+		<%= check_box_tag "google_place[]", value="#{poi.google_place}" %>
+		<span><%=poi.name %></span>
+	</aside>
+</div>
+
+
+
+
 
