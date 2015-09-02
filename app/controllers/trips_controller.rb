@@ -18,6 +18,8 @@ class TripsController < ApplicationController
     @places = params[:place_ids]
     @start = params[:start]
 
+    binding.pry
+    
     # Validation for start text field because the form is not creating/saving
     # Redirects back to POI selection page if not filled in
     if @start == "" || @places == nil

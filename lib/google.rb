@@ -41,17 +41,17 @@ end
     response = HTTParty.get(link)["results"]
     suggestions = []
     response.each do |e|
-      unless e['types'].include?('locality') 
+      unless e['types'].include?('locality')
+        details = getDetails(e["place_id"])
         sugg = {}
         sugg["name"] = e["name"]
-        sugg["google_place"] = e["place_id"]
+        sugg["img_url"] = details[:img_url]
+        sugg["place_id"] = e["place_id"]
         sugg["latlong"] = e["geometry"]["location"]["lat"].to_s+","+e["geometry"]["location"]["lng"].to_s
         suggestions << sugg
       end
     end    
-
     suggestions
-
     #return array of POIS [{place_id, name}]
   end
 
