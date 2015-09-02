@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     if @trips
       @rand = Trip.order("RANDOM()").first
+
     end
   end
 

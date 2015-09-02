@@ -9,6 +9,7 @@ skip_before_action :require_login, only: [:index, :search]
   	@trip = Trip.all
   	if @trip
   		@rand = Trip.order("RANDOM()").first
+
   	end
 
   	if logged_in?
