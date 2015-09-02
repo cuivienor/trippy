@@ -5,8 +5,7 @@ class LocationsController < ApplicationController
     include Google
 
     def index
-        @user = User.find params[:id]
-        @location = params[:location]
+    
     end
 
     def create
@@ -20,18 +19,27 @@ class LocationsController < ApplicationController
 
         # user = User.find(params[:user_id])
         redirect_to user_location_path(params[:user_id], location)
+
     end
 
+
+#POI suggestions page
     def show
         @user_id = params[:user_id]
-
         @location = Location.find(params[:id])
-
         @suggestions = getPois(@location.latlong)
 
-        # binding.pry
+        if @suggestions
+            array = []
+            @suggestions.each do |sugg|
+               s = sugg["latlong"]
+               array << s
+           end
+           suggs = array.join("|")
+           @link = getStatic(suggs)
+        end
+    
 
-        # redirect_to user_location_pois_path(@user, @location)
 
     end
 
