@@ -3,11 +3,11 @@
 <h3 class="pure-u-1">Here's the places you've bookmarked in <%=@loc.name %></h3>
 
 <div class="pure-u-1">
-    <%= form_tag new_user_location_trip_path(@user, @loc), method:'get' do %>
+    <%= form_tag new_user_location_trip_path(@user, @location), method:'get' do %>
         <div class="pure-g">
             <div class="pure-u-1">
                 <% @pois.each do |poi| %>
-                    <%= render partial: 'poi', locals: {poi: poi} %>
+                    <%= render partial: 'poi_google_place', locals: {poi: poi} %>
                 <% end %>
             </div>
         </div>
