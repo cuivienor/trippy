@@ -7,7 +7,7 @@ class PoisController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     @loc = Location.find_by(id: params[:location_id])
-    @pois = @user.locations.find(location_id = @loc.id).pois
+    @pois = @user.locations.find(@loc.id).pois
   end
 
 

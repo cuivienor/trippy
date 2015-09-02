@@ -7,15 +7,16 @@ require 'google'
 class TripsController < ApplicationController
   include Google
 
-  def index 
-    @start = getStart("10 E 21st st new york")
+  def index
+    @trips = User.find(session[:user_id]).trips.where(location_id: params[:location_id])
     binding.pry
+    render layout: "trips_index"
   end
 
   def new
     @user = User.find(params[:user_id])
     @location = Location.find(params[:location_id])
-    @places = params[:google_place]
+    @places = params[:place_ids]
     @start = params[:start]
 
     # Validation for start text field because the form is not creating/saving
@@ -25,7 +26,7 @@ class TripsController < ApplicationController
     else
       #Arguments for getDirections still not set, current view is in beta
       starting = getLocation(params[:start])
-      points = getDirection(starting[:google_place],params[:google_place])
+      points = getDirection(starting[:google_place],params[:place_ids])
       legs = points["routes"][0]["legs"]
       poly = points["routes"][0]["overview_polyline"]["points"]
       #Grabs the latitude and longitude of all points provided by the directions API and concats them for use in the static map
@@ -59,9 +60,11 @@ class TripsController < ApplicationController
     @trip_params = {
       map_image: @link,
       stops: @stops,
-      directions: @directions      
+      directions: @directions,
+      place_ids: @places
     }
     @trip = Trip.new
+    binding.pry
   end
 
   def create
@@ -72,7 +75,10 @@ class TripsController < ApplicationController
     trip_details[:directions] = params[:trip][:directions]
     trip_details[:user_id] = params[:user_id]
     trip_details[:location_id] = params[:location_id]
-    Trip.create(trip_details)
+    trip = Trip.create(trip_details)
+    params[:trip][:place_ids].each do |place_id|
+      trip.pois << Poi.find_by(google_place: place_id)
+    end
     redirect_to user_path(params[:user_id])
   end
 

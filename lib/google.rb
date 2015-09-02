@@ -45,8 +45,8 @@ module Google
     #return array of POIS [{place_id, name}]
   end
 
-  def getDirection(starting,array_of_place_ids)
-    waypoints = array_of_place_ids.split(" ")
+  def getDirection(starting, array_of_place_ids)
+    waypoints = array_of_place_ids
     waypoints = waypoints.join("|place_id:")
     params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{starting}", 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' => APIKEY)
     link = TextDirectionBase + params
