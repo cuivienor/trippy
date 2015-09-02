@@ -19,7 +19,6 @@ class TripsController < ApplicationController
     @start = params[:start]
 
 
-    
     # Validation for start text field because the form is not creating/saving
     # Redirects back to POI selection page if not filled in
     if @start == "" || @places == nil

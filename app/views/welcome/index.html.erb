@@ -1,13 +1,11 @@
 
 <%= form_tag('/welcome/search', method: 'get') do %>
+		<%= render 'welcome/form' %>
+	<% end %>
+</div>
 
-	<%= render 'form' %>
-<br>
+<div class="pure-u-1 footer">
 
-Here are trips other users have created:
-	<br>
-	<%= render '/trips/trip_random' %>
-	<%= render '/trips/trip_random' %>
-	<%= render '/trips/trip_random' %>
+		<%= render '/trips/trip_random' %>
 
-<% end %>
+</div>
