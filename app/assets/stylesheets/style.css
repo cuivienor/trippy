@@ -83,14 +83,14 @@ body {
    width: 100%; /* for IE 6 */
 }
 
-h4 { 
+.name { 
    position: absolute; 
    top: 5%; 
    left: 0; 
    width: 100%; 
 }
 
-h4 span { 
+.name span { 
    color: white; 
    font: bold Helvetica, Sans-Serif;
    line-height: 230%;
@@ -101,6 +101,7 @@ h4 span {
 }
 
 .trips-overview{
+    opacity: 0.8;
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 2em;
@@ -113,3 +114,6 @@ h4 span {
     /* margin-right: auto; */
 }
 
+.trips-overview:hover{
+    opacity: 1
+}
