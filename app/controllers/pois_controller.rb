@@ -16,8 +16,9 @@ class PoisController < ApplicationController
         array << f
       end
       locs = array.join("|")
-      @link = getStatic(locs, @loc[:name])
+      @link = getStatic(locs)
 
+binding.pry
     end
   end
 
