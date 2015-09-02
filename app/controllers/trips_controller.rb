@@ -64,7 +64,6 @@ class TripsController < ApplicationController
       place_ids: @places
     }
     @trip = Trip.new
-    binding.pry
   end
 
   def create
