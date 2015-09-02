@@ -9,7 +9,6 @@ class PoisController < ApplicationController
     @loc = Location.find_by(id: params[:location_id])
     @pois = @user.locations.find(location_id = @loc.id).pois
 
-
     if @pois
       array = []
       n = @pois.pluck(:latlong)
@@ -18,6 +17,7 @@ class PoisController < ApplicationController
       end
       locs = array.join("|")
       @link = getStatic(locs, @loc[:name])
+
     end
   end
 
