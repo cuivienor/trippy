@@ -2,9 +2,13 @@
 
 	<fieldset>
 		<h3 class="suggest">Get Inspiration From Others</h3>
-			<%= @rand.location.name %>
-			</br>
-			Created by: 
-			<%= @rand.user.username %>
+			<h4><%= @rand.user.username %> is going to <%= @rand.location.name %></h4>
+			<b>On the trip they'll see: </b>
+			<br>
+			<% @rand.pois.each do |r| %>
+				<%= r.name %>
+				<br>
+			<% end %>
+			
 	</fieldset>		
 <% end %>
