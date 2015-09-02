@@ -6,10 +6,19 @@
         <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">LOCATIONS</a>
         <ul class="pure-menu-children">
         	<% locales = User.find_by(id: session[:user_id]).locations%>
+<<<<<<< HEAD
             <% locales.each do |locale| %>
                 <li class="pure-menu-item">
                   <%= link_to(locale.name, user_location_trips_path(session[:user_id], locale.id), class: "pure-menu-link")%>
                 </li>
+=======
+          <% if locales.length == 0 %>
+            <li class="pure-menu-item"><a class="pure-menu-link">NONE SAVED</a></li>
+            <% else %>
+              <% locales.each do |locale| %>
+                <li class="pure-menu-item"><a href="SHOW PAGE" class="pure-menu-link"><%=locale.name%></a></li>
+              <% end %>
+>>>>>>> purified some forms
             <% end %>
           </ul>
           </li>
