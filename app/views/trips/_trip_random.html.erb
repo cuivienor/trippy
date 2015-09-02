@@ -1,10 +1,23 @@
 <% if @rand %>
 
-	<fieldset>
-		<h3 class="suggest">Get Inspiration From Others</h3>
-			<%= @rand.location.name %>
-			</br>
-			Created by: 
-			<%= @rand.user.username %>
-	</fieldset>		
+<div class="pure-g">	
+	<div class="pure-u-1 footer">	
+		<div class="pure-u-1-3" style="margin-top:-22px">
+			<h2 class="banner" >Get Inspiration From Others: </h2>
+			<h3 class="banner"><%= @rand.user.username %> is going to <%= @rand.location.name %></h3>
+		</div>
+
+		<div class="pure-u-1-3" style="text-align:left">		
+			<b class="banner">On the trip they'll see: </b>
+			<br>
+			<% @rand.pois.each do |r| %>
+				<div class="banner">
+					<%= r.name %>
+					<br>
+				</div>	
+			<% end %>
+		</div>
+	</div>
+</div>
+		
 <% end %>

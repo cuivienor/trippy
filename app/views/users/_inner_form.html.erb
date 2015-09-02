@@ -14,34 +14,35 @@
    </div>
    	<% end %>
 
-<div class = "pure-form pure-form-aligned">
-	<fieldset>
-		<div class="pure-control-group">
+<form class = "pure-form pure-form-aligned pure-u-1-3">
+  <fieldset class="field">
+  <legend><h1 class="banner">Create New User</h1></legend>
+		<div class="pure-control-group form-word">
 			<%= f.label :username %>
 			<%= f.text_field :username %>
-    </div>	
-    <div class="pure-control-group">
+    </div></br>	
+    <div class="pure-control-group form-word">
 			<%= f.label :email %>
 			<%= f.email_field :email %>
-    </div>
-    <div class="pure-control-group">
+    </div></br>
+    <div class="pure-control-group form-word">
 			<%= f.label :first_name %>
 			<%= f.text_field :first_name %>
-    </div>
-    <div class="pure-control-group">
+    </div></br>
+    <div class="pure-control-group form-word">
 			<%= f.label :last_name %>
 			<%= f.text_field :last_name %>
-    </div>
-    <div class="pure-control-group">
+    </div></br>
+    <div class="pure-control-group form-word">
 			<%= f.label :password %>
 			<%= f.password_field :password %>
-    </div>
-    <div class="pure-control-group">
+    </div></br>
+    <div class="pure-control-group form-word">
 			<%= f.label :password_confirmation %>
 			<%= f.password_field :password_confirmation %>
-    </div>
+    </div></br>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary">
 		</div>
 	</fieldset>
-</div>
+</form>

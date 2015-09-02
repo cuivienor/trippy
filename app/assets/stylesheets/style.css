@@ -64,6 +64,15 @@ body {
 
 .field{
     margin:200px 250px 250px 250px;
+    padding-bottom:20px;
+    text-align:center;
+    background-color: rgba(0,0,0,.5);
+}
+
+.form-word{
+    text-align:right;
+    color: white;
+    margin-right:250px;
 }
 
 .footer {
@@ -72,6 +81,7 @@ body {
     bottom: 0;
     height: 180px;
     width: 100%;
+    background-color: rgba(0,0,0,.5);
 }
 
 .banner{
@@ -116,4 +126,13 @@ body {
 
 .trips-overview:hover{
     opacity: 1
+
+                 
+.search{
+    margin: 10px 0px 0px 10px;
+}
+
+
+.login{
+    background-color: rgba(0,0,0,.5);
 }
