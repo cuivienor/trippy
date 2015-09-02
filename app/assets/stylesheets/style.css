@@ -3,7 +3,46 @@ html {
     min-height: 100%;
 }
 body {
-    margin: 0 0 100px; /* bottom = footer height */
+  background: no-repeat center center fixed;
+  margin: 0 0 100px;
+  height: 100%;
+  width: 100%;
+  /*change back to shift-bg*/
+  -webkit-animation: bg 90s ease infinite;
+  /*change back to shift-bg*/
+  animation: bg 90s ease infinite;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@-webkit-keyframes shift-bg{
+  0%  { background-image: url('http://wallpapersmap.com/wp-content/uploads/2013/05/sunset-city-backgrounds.jpg'); }
+  10% { background-image: url('http://host2post.com/server13/photos/f4rk4zzT-31dxM~/beautiful-city-background-currently-3-47-5.jpg');  }
+  20% { background-image: url('http://cdn.bigbangfish.com/city/179857-chicago-city-wallpaper-widescreen.jpg'); }
+  30% { background-image: url('http://macwallpapers.xyz/wp-content/uploads/2015/08/night-city-lights-hd-wallpapers-for-mac-pack.jpg'); }
+  40% { background-image: url('http://cdn.wallwuzz.com/uploads/wallpapers-city-photography-backgrounds-wallwuzz-hd-wallpaper-21018.jpg'); }
+  50% { background-image: url('https://wallpaperscraft.com/image/switzerland_city_height_river_building_737_1920x1080.jpg'); }
+  60% { background-image: url('http://cdn.bigbangfish.com/city/678886-miami-city-skyline.jpg'); }
+  70% { background-image: url('http://wallpoper.com/images/00/17/44/03/anime-city_00174403.jpg'); }
+  80% { background-image: url('https://c1.staticflickr.com/3/2862/10613506655_cc8a61694d_b.jpg'); }
+  90% { background-image: url('http://createapk.com/project/2014/09/walla/vatican-city-wallpaper-hd/image/164835-vatican-city-wallpaper-hd.jpg'); }
+  100% { background-image: url('http://www.hdwallpapersnew.net/wp-content/uploads/2015/08/beautiful-shanghai-widescreen-high-definition-wallpaper-for-desktop-background-download-images.jpg'); }
+}
+
+@keyframes shift-bg {
+  0%  { background-image: url('http://wallpapersmap.com/wp-content/uploads/2013/05/sunset-city-backgrounds.jpg'); }
+  10% { background-image: url('http://host2post.com/server13/photos/f4rk4zzT-31dxM~/beautiful-city-background-currently-3-47-5.jpg');  }
+  20% { background-image: url('http://cdn.bigbangfish.com/city/179857-chicago-city-wallpaper-widescreen.jpg'); }
+  30% { background-image: url('http://macwallpapers.xyz/wp-content/uploads/2015/08/night-city-lights-hd-wallpapers-for-mac-pack.jpg'); }
+  40% { background-image: url('http://cdn.wallwuzz.com/uploads/wallpapers-city-photography-backgrounds-wallwuzz-hd-wallpaper-21018.jpg'); }
+  50% { background-image: url('https://wallpaperscraft.com/image/switzerland_city_height_river_building_737_1920x1080.jpg'); }
+  60% { background-image: url('http://cdn.bigbangfish.com/city/678886-miami-city-skyline.jpg'); }
+  70% { background-image: url('http://wallpoper.com/images/00/17/44/03/anime-city_00174403.jpg'); }
+  80% { background-image: url('https://c1.staticflickr.com/3/2862/10613506655_cc8a61694d_b.jpg'); }
+  90% { background-image: url('http://createapk.com/project/2014/09/walla/vatican-city-wallpaper-hd/image/164835-vatican-city-wallpaper-hd.jpg'); }
+  100% { background-image: url('http://www.hdwallpapersnew.net/wp-content/uploads/2015/08/beautiful-shanghai-widescreen-high-definition-wallpaper-for-desktop-background-download-images.jpg'); }
 }
 
 .container {
