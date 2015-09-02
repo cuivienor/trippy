@@ -18,7 +18,6 @@ class PoisController < ApplicationController
       locs = array.join("|")
       @link = getStatic(locs)
 
-binding.pry
     end
   end
 
