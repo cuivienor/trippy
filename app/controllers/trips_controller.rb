@@ -7,9 +7,10 @@ require 'google'
 class TripsController < ApplicationController
   include Google
 
-  def index 
-    @start = getStart("10 E 21st st new york")
+  def index
+    @trips = User.find(session[:user_id]).trips.where(location_id: params[:location_id])
     binding.pry
+    render layout: "trips_index"
   end
 
   def new
