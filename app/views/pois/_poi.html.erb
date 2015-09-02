@@ -3,7 +3,7 @@
 	<img class="pure-u-1-1" style="height:200px; width:200px" src="<%=poi.img_url %>" alt="<%=poi.name %>">
 
 	<aside class="photo-box-caption">
-		<%= check_box_tag "google_place[]", value="#{poi.google_place}" %>
+		<%= check_box_tag "place_ids[]", value="#{poi.google_place}" %>
 		<span><%=poi.name %></span>
 	</aside>
 </div>
