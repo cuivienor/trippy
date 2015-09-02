@@ -1,10 +1,13 @@
 <!--add dynamic location to h3 tag-->
+<form class="pure-form pure-form-stacked">
+<legend>Points of Interest in <%= @location.name %> </legend> 
 
-<h3>Points of Interest in <%= @location.name %> </h3> 
-
+<div class = "pure-u-1">
 <%= form_tag user_location_pois_path(@user_id, @location) do |f| %>
 	<% @suggestions.each do |sugg| %>
 		<%= render partial: '/pois/poi_form', locals: {poi: sugg} %>
 		<% end %>
-	<%= submit_tag 'Bookmark Places' %>
+	</br></br>
+	<button class="pure-button pure-button-primary"> Bookmark Places</button>
 <% end %>
+</form>

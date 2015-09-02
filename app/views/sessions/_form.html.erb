@@ -1,7 +1,11 @@
 <%= form_tag '/sessions' do %>
-    Username:
-    <%= text_field_tag :username %>
-    Password:
-    <%= password_field_tag :password %>
-    <%= submit_tag 'Log In'%>
+    <form class="pure-form pure-form-stacked">
+    	<fieldset>
+		    <label>Username</label>
+		    <%= text_field_tag :username %>
+		    <label>Password</label>
+		    <%= password_field_tag :password %>
+		   <button class="pure-button pure-button-primary">Sign In</button>
+		  </fieldset>
+		 </form>
 <% end %>
