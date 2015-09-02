@@ -2,8 +2,8 @@
 
 <% @trips.each do |trip| %>
     <div class="trips-overview pure-g">
-        <% trip.pois.each do |poi| %>
-            <%= render partial: 'poi_trip', locals: {poi: poi} %>
-        <% end %>
+            <% trip.pois.each do |poi| %>
+                <%= render partial: 'poi_trip', locals: {poi: poi} %>
+            <% end %>
     </div>
 <% end %>

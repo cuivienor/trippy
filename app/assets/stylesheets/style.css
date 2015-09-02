@@ -100,3 +100,16 @@ h4 span {
    padding: 10px; 
 }
 
+.trips-overview{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 2em;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.centering{
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
