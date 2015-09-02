@@ -1,7 +1,12 @@
 <h1>Your Trips</h1>
 
+<h1><%= link_to "Your bookmarks", user_location_pois_path(@user_id, @location_id)%></h1>
+
+
 <% @trips.each do |trip| %>
     <div class="trips-overview pure-g">
-        <% render partial: "pois/poi", collection: trip.pois %>
+            <% trip.pois.each do |poi| %>
+                <%= render partial: 'poi_trip', locals: {poi: poi} %>
+            <% end %>
     </div>
 <% end %>

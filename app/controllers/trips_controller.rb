@@ -8,6 +8,8 @@ class TripsController < ApplicationController
   include Google
 
   def index
+    @user_id = params[:user_id]
+    @location_id = params[:location_id]
     @trips = User.find(session[:user_id]).trips.where(location_id: params[:location_id])
     render layout: "trips_index"
   end
