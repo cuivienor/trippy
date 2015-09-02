@@ -13,10 +13,11 @@ module Google
   StaticSearch = "https://maps.googleapis.com/maps/api/staticmap?"
 
 
-def getStatic(latlongs, location)
-  query = URI.encode_www_form('center' => location, 'zoom' => '13', 'size' => '600x400', 'markers' => 'blue|label:S|'+latlongs, 'key' => APIKEY)
+def getStatic(latlongs)
+  query = URI.encode_www_form('size' => '600x400', 'markers' => 'color:blue'+latlongs, 'key' => APIKEY)
   link = StaticSearch + query
   # response = HTTParty.get(link)
+
 end
 
 
