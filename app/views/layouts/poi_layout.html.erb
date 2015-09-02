@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trippy</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/base-context-min.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- User Navigation Bar ... Present on all pages? -->
+            <div class="user-bar">
+                <% if session[:user_id] %>
+                    <!-- Show this is logged in -->
+                    Hello, <%= User.find(session[:user_id]).first_name %>
+                    <%= link_to('Log out', '/sessions', method: :delete) %>
+                <% else %>
+                    <!-- Show this if not logged in -->
+                    <%= link_to 'Create User', new_user_path %>
+                    <%= link_to 'Log In', new_sessions_path %>
+                <% end %>
+            </div>
+            <%= yield %>
+        </div>
+    </body>
+</html>
