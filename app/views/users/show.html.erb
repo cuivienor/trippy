@@ -1,20 +1,15 @@
-<%= form_tag("/users/#{@user_id}/locations") do %>
-	<%= render 'welcome/form' %>
-<% end %>
-
-Here are the trips you've created:
-<br>
-	<% @trips.each do |trip| %>
-		<%= trip.location.name %>
-		<br>
+<div class="pure-u-1">
+	<%= form_tag("/users/#{@user_id}/locations") do %>
+		<%= render 'welcome/form' %>
 	<% end %>
+</div>
 
-
-<br>
-
-Here are trips other users have created:
-	<br>
-	<%= render '/trips/trip_random' %>
-	<%= render '/trips/trip_random' %>
-	<%= render '/trips/trip_random' %>
+<div class="pure-u-1 footer">
+	<fieldset>
+		<h3 class="suggest">Get Inspiration From Others</h3>
+		<%= render '/trips/trip_random' %>
+		<%= render '/trips/trip_random' %>
+		<%= render '/trips/trip_random' %>
+	</fieldset>
+</div>
 
