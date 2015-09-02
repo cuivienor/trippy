@@ -1,23 +1,47 @@
-<% if @user.errors.any?  %>
-  <p style="color: red"><%= pluralize(@user.errors.count, "error")%> when creating new user:</p>
- 	<ul>
- 	 <% @user.errors.full_messages.each do |message| %>
-   <li style="color: red"><%= message %></li>
- 	 <% end %>
-	</ul>
-<% end %>
 
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :first_name %>
-<%= f.text_field :first_name %>
-<%= f.label :last_name %>
-<%= f.text_field :last_name %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
-</br>
-<%= f.submit %>
+  	<% if @user.errors.any?  %>
+  <div class = "pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+    	 <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+    	 	<p style="color: red"><%= pluralize(@user.errors.count, "ERROR")%> (HOVER TO VIEW)</p>
+    	 	<ul class="pure-menu-children">
+    	 		<% @user.errors.full_messages.each do |message| %>
+   				<li class="pure-menu-item" style="color: red"> > <%= message %></li>
+   				<% end %>
+   			</ul>
+   		</li>
+   	</ul>
+   </div>
+   	<% end %>
+
+<div class = "pure-form pure-form-aligned">
+	<fieldset>
+		<div class="pure-control-group">
+			<%= f.label :username %>
+			<%= f.text_field :username %>
+    </div>	
+    <div class="pure-control-group">
+			<%= f.label :email %>
+			<%= f.email_field :email %>
+    </div>
+    <div class="pure-control-group">
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %>
+    </div>
+    <div class="pure-control-group">
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name %>
+    </div>
+    <div class="pure-control-group">
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+    </div>
+    <div class="pure-control-group">
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation %>
+    </div>
+		<div class="pure-controls">
+			<input type="submit" class="pure-button pure-button-primary">
+		</div>
+	</fieldset>
+</div>

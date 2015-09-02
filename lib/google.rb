@@ -55,8 +55,8 @@ end
     #return array of POIS [{place_id, name}]
   end
 
-  def getDirection(starting,array_of_place_ids)
-    waypoints = array_of_place_ids.split(" ")
+  def getDirection(starting, array_of_place_ids)
+    waypoints = array_of_place_ids
     waypoints = waypoints.join("|place_id:")
     params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{starting}", 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' => APIKEY)
     link = TextDirectionBase + params
@@ -70,7 +70,11 @@ end
     response = HTTParty.get(link)
     name = response["result"]["name"]
     google_loc = response["result"]["geometry"]["location"]["lat"].to_s + "," + response["result"]["geometry"]["location"]["lng"].to_s
-    photoreference = response["result"]["photos"][0]["photo_reference"]
+    if response["result"]["photos"]
+      photoreference = response["result"]["photos"][0]["photo_reference"]
+    else
+      photoreference = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png"
+    end
     img_url = getImage(photoreference)
     details_params = {name: name, latlong: google_loc, google_place: place_id, img_url: img_url}
   end

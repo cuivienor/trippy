@@ -13,16 +13,12 @@ class PoisController < ApplicationController
     if @pois
       array = []
       n = @pois.pluck(:latlong)
-        n.each do |f|
-          array << f
-        end
+      n.each do |f|
+        array << f
+      end
       locs = array.join("|")
-    @link = getStatic(locs, @loc[:name])
-
-
-
+      @link = getStatic(locs, @loc[:name])
     end
-
   end
 
 

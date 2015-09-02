@@ -6,5 +6,8 @@
     <% directions.each do |direction| %>
         <%= f.hidden_field :directions, :multiple => true, value: direction %>
     <% end %>
+    <% place_ids.each do |poi| %>
+        <input multiple="multiple" value="<%= poi %>" type="hidden" name="trip[place_ids][]" id="trip_place_ids[]">
+    <% end %>
     <%= f.submit "Save" %>
 <% end %>
