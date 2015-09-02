@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
   end
 
   def search
+    code = getTickets(params[:location])
     response = getLocation(params[:location])
   end
 
