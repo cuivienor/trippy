@@ -1,10 +1,11 @@
 <%= form_tag '/sessions' do %>
     <form class="pure-form pure-form-stacked">
-    	<fieldset>
-		    <label>Username</label>
-		    <%= text_field_tag :username %>
-		    <label>Password</label>
-		    <%= password_field_tag :password %>
+    	<fieldset class="field">
+    	<legend class="banner"><h1>Please Log In</h1></legend>
+		    <label class="form-thing">Username</label>
+		    <%= text_field_tag :username,nil, class: "login-input" %>
+		    <label class="form-thing">Password</label>
+		    <%= password_field_tag :password,nil, class: "login-input" %>
 		   <button class="pure-button pure-button-primary">Sign In</button>
 		  </fieldset>
 		 </form>
