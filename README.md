@@ -18,7 +18,7 @@ This project was created with the traveler in mind. When traveling to a new dest
 <h3>Wireframe</h3>
 ![Wireframe](readme_stuff/wireframe.jpg)
 <h3>Database Design</h3>
-![Database Design](readme_stuff/database_design.jpg
+![Database Design](readme_stuff/database_design.jpg)
 <h3>Routes</h3>
 ![Routes](readme_stuff/routes.jpg)
 
