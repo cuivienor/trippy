@@ -8,7 +8,6 @@
                 <%= render partial: 'poi_google_place', locals: {poi: poi} %>
             <% end %>
         </div>
-
         <br>
         <%= label_tag 'Where are you staying?', nil, class: "banner" %>
         <%= text_field_tag 'start', nil, placeholder:'Address, City, State/Country', size: 50 %>

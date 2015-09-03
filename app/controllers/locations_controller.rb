@@ -5,7 +5,6 @@ class LocationsController < ApplicationController
     include Google
 
     def index
-    
     end
 
     def create
@@ -16,10 +15,8 @@ class LocationsController < ApplicationController
         else
           location = Location.find_by(google_place: location.google_place)
         end
-
         # user = User.find(params[:user_id])
         redirect_to user_location_path(params[:user_id], location)
-
     end
 
 
