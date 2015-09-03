@@ -1,6 +1,6 @@
 <!--add dynamic location to h3 tag-->
 
-<h1 class="pure-u-1">Here's the places you've bookmarked in <%=@loc.name %></h1>
+<h1 class="pure-u-1 banner">Here's the places you've bookmarked in <%=@loc.name %></h1>
 
 <div class="pure-u-1">
     <%= form_tag new_user_location_trip_path(@user, @loc), method:'get' do %>
@@ -13,7 +13,7 @@
         </div>
 
         <br>
-        <%= label_tag 'Where are you staying?' %>
+        <%= label_tag 'Where are you staying?', class: "form-thing" %>
         <%= text_field_tag 'start', nil, placeholder:'Address, City, State/Country', size: 50 %>
 
         <%= submit_tag 'git it gurl' %>

@@ -76,7 +76,8 @@ body {
 .form-word{
     text-align:right;
     color: white;
-    margin-right:250px;
+    margin-right:50px;
+    margin: 0px 50px 0px -75px;
 }
 
 .form-thing{

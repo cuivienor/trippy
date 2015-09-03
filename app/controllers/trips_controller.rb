@@ -11,7 +11,7 @@ class TripsController < ApplicationController
     @user_id = params[:user_id]
     @location_id = params[:location_id]
     @trips = User.find(session[:user_id]).trips.where(location_id: params[:location_id])
-    render layout: "trips_index"
+    # render layout: "trips_index"
   end
 
   def new

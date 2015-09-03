@@ -1,6 +1,12 @@
 		<form class = "pure-u-1 pure-form">
 			<fieldset class="field">
+				<!-- Customize search bar if the user is a member is signed -->
+				<% if session[:user_id] %>
+				<legend><h2 class="banner">Search For Your Destination, <%= User.find(session[:user_id]).first_name %></h2></legend>
+				<% else %>
+				<!-- Default if no session cookie -->
 				<legend><h2 class="banner">Search For Your Destination</h2></legend>
+				<% end %>
     		<%= search_field_tag :q, nil, size: 75 %>
     		<button class="button-success pure-button-primary search">Search</button>
 			</fieldset>
