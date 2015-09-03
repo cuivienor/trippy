@@ -4,9 +4,11 @@
 
 
 <% @trips.each do |trip| %>
-    <div class="trips-overview pure-g">
+    <a href="/users/<%= @user_id %>/locations/<%=@location_id%>/trips/<%=trip.id%>"> 
+    	<div class="trips-overview pure-u-1">
             <% trip.pois.each do |poi| %>
                 <%= render partial: 'poi_trip', locals: {poi: poi} %>
             <% end %>
-    </div>
+    	</div>
+	</a>
 <% end %>

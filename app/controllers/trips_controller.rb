@@ -14,6 +14,15 @@ class TripsController < ApplicationController
     # render layout: "trips_index"
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @location = Location.find(params[:location_id])
+    @trip = Trip.find(params[:id]) 
+
+  end
+
+
+
   def new
     @user = User.find(params[:user_id])
     @location = Location.find(params[:location_id])
