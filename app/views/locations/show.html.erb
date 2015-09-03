@@ -1,22 +1,19 @@
 <!--add dynamic location to h3 tag-->
 
-<h1 class="pure-u-1">Points of Interest in <%= @location.name %> </h1> 
+<h1 class="pure-u-1 banner">Points of Interest in <%= @location.name %> </h1> 
 
-<div class = "pure-u-1">
-<%= form_tag(user_location_pois_path(@user_id, @location), class: "pure-form pure-form-stacked") do |f| %>
-	<div class="pure-g">
-		<div class="pure-u-1">
-			<% @suggestions.each do |sugg| %>
-				<%= render partial: 'pois/poi', locals: {poi: sugg} %>
-			<% end %>
-			</br></br>
-			<%= submit_tag "Bookmark Places", class:"pure-button pure-button-primary" %>
-		</div>
-		<img src="<%= @link %>" alt="">
-	</div>
-<% end %>
+    <%= form_tag(user_location_pois_path(@user_id, @location), class: "pure-form") do |f| %>
+        <div class="ribbon">
+	    <% @suggestions.each do |sugg| %>
+		<%= render partial: 'pois/poi', locals: {poi: sugg} %>
+	    <% end %>
+        </div></br></br>
+	<%= submit_tag "Bookmark Places", class:"pure-button pure-button-primary" %>
+        <br>
+        <br>
+	<img src="<%= @link %>" alt="">
+    <% end %>
 
-</div>
 
 
 
