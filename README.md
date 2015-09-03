@@ -2,7 +2,7 @@
 
 WDI Project 3, name pending
 
-<h1>Trippy, or Tripper, or Tripoholic, or whatevs... you decide</h1>
+<h1>Trippy, Tripper, Tripoholic, or whatevs... you decide</h1>
 
 Contributors: James Leisy, Johnathan Chei, David Vinkesteijn, Peter Petrov
 Advisors: Andrew Fritz, Sung Choi
