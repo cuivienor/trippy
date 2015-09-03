@@ -1,18 +1,26 @@
 <div class ="pure-u-1 login">
     <div class="pure-menu pure-menu-horizontal">
     <ul class="pure-u-1 pure-menu-list">
-        <!-- <li class="pure-menu-item"><%= link_to'HOME', user_path(session[:user_id])%></li> -->
+
         <li class="pure-menu-item"><a href="/users/<%=session[:user_id]%>"class="pure-menu-link">HOME</a>
+
         <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">LOCATIONS</a>
+
+          <!-- Drop down menu that shows the list of saved trips by user -->
         <ul class="pure-menu-children">
         	<% locales = User.find_by(id: session[:user_id]).locations%>
+
           <% if locales.length == 0 %>
+          <!-- If the user hasn't created one yet, display this -->
             <li class="pure-menu-item"><a class="pure-menu-link">NONE SAVED</a></li>
+
             <% else %>
+            <!-- Else loop thru all trips by user and display is drop down -->
               <% locales.each do |locale| %>
                 <li class="pure-menu-item"><%= link_to(locale.name, user_location_trips_path(session[:user_id], locale.id), class: "pure-menu-link")%></li>
               <% end %>
             <% end %>
+
           </ul>
           </li>
           <li class="pure-menu-item"><%= link_to('LOGOUT', '/sessions', method: :delete, class: "pure-menu-link")%></li>

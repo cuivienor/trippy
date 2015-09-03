@@ -2,8 +2,8 @@
 <img src="<%= map_image %>">
 
 
-<h2>You'll be seeing:</h2>
-<div class="pure-u-1-3">
+<h2 class="banner">You'll be seeing:</h2>
+<div class="pure-u-1-3" style="background-color:rgba(0,0,0,0.5)">
 <ul>
     <% stops.each do |stop| %>
         <%= render partial: "stop", locals: {stop: stop} %>
@@ -13,13 +13,12 @@
 </br>
 </br>
 
-
-	<div class="pure-menu pure-menu-scrollable custom-restricted">
-    <a class="pure-menu-link pure-menu-heading">Directions</a>
+	<div class="pure-menu pure-menu-scrollable custom-restricted" style="background-color:rgba(0,0,0,0.5)", "margin-left:30%">
+    <a class="pure-menu-link pure-menu-heading" style="color:white">Directions</a>
     <ol class="pure-menu-list">
     <% counter = 1 %>
     <% directions.each do |step| %>
-			 <li class="pure-menu-item"><%=counter%>. <%= raw(step) %></li></br>
+			 <li class="pure-menu-item" style="color:white"><%=counter%>. <%= raw(step) %></li></br>
        <% counter +=1 %>
     <% end %>
   </ol>

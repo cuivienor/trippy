@@ -1,9 +1,20 @@
-<h3>Points of Interest in <%= @location[:name] %> </h3> 
-
-	<% @suggestions.each do |sugg| %>
-		<%= sugg["name"] %> <br>
-	<% end %>
-
+</br></br></br>
+<div class="pure-u-1-4" style="background-color:rgba(0,0,0,0.5)">
+<h3 class="banner">No Pictures? Login To See It All!</h3>
+<h3 class="banner">Or You Could</h3>
+</div>
+</br>
 <%= form_tag new_user_path, method:'get' do %>
-<%= button_tag 'Must Login to Continue' %>
+<%= button_tag 'Sign Up', class: "pure-button pure-button-primary" %>
 <% end %>
+<div class="pure-u-1-4">
+<form class = "pure-form pure-form-aligned">
+	<fieldset class="field">
+		<legend><h3 class="banner">Points of Interest in <%= @location[:name] %></h3></legend>
+		<% @suggestions.each do |sugg| %>
+			<%= content_tag(:p ,sugg["name"], class: "form-thing", style: "text-align:center")%> <br>
+		<% end %>
+	</fieldset>
+</form>
+</div>
+

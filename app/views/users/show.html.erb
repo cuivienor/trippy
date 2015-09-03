@@ -1,9 +1,10 @@
+<!-- Partial to render the search bar -->
 <div class="pure-u-1">
 	<%= form_tag("/users/#{@user_id}/locations") do %>
 		<%= render 'welcome/form' %>
 	<% end %>
 </div>
-
+<!-- Trip suggestions -->
 <div class="pure-u-1 footer">
 
 	<%= render '/trips/trip_random' %>

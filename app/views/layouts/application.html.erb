@@ -10,8 +10,10 @@
     <body>
         <div class="container" >
             <div class = "pure-g">
+                <!-- If a session exists for the user, show a navbar for members -->
                 <% if session[:user_id] %>
                     <%= render partial: 'layouts/log_navbar' %>
+                    <!-- Else render the generic, super-ultra-lame-not-cool-person navbar -->
                 <% else %>
                     <%= render partial: 'layouts/logout_navbar' %>
                 <% end %>

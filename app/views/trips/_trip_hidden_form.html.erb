@@ -9,5 +9,6 @@
     <% place_ids.each do |poi| %>
         <input multiple="multiple" value="<%= poi %>" type="hidden" name="trip[place_ids][]" id="trip_place_ids[]">
     <% end %>
+</br>
     <%= f.submit "Save", class: "pure-button pure-button-primary"%>
 <% end %>
