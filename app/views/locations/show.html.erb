@@ -1,5 +1,6 @@
 <!--add dynamic location to h3 tag-->
 
+
 <h1 class="pure-u-1">Points of Interest in <%= @location.name %> </h1> 
 
 <div class = "pure-u-1">
@@ -12,7 +13,9 @@
 			</br></br>
 			<%= submit_tag "Bookmark Places", class:"pure-button pure-button-primary" %>
 		</div>
-		<img src="<%= @link %>" alt="">
+		<div>			
+			<img class="pure-img" style="margin:auto" src="<%= @link %>" alt="">
+		</div>
 	</div>
 <% end %>
 
