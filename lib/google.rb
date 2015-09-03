@@ -13,15 +13,16 @@ module Google
   StaticSearch = "https://maps.googleapis.com/maps/api/staticmap?"
 
 
-def getStatic(latlongs)
-  query = URI.encode_www_form('size' => '600x400', 'markers' => 'color:blue|'+latlongs, 'key' => APIKEY)
-  link = StaticSearch + query
-  # response = HTTParty.get(link)
+# get static map for Locaiton POI (location#show) page and Bookmark page (POI#index)
+  def getStatic(latlongs)
+    query = URI.encode_www_form('size' => '500x300', 'scale' => '2', 'markers' => 'color:blue|'+latlongs, 'key' => APIKEY)
+    link = StaticSearch + query
+    # response = HTTParty.get(link)
 
-end
+  end
 
 
-
+#get location with text search for user#show and welcome#index
   def getLocation(name)
     query = URI.encode_www_form('query' => name, 'key' => APIKEY)
     link = TextSearchBase + query
@@ -32,6 +33,7 @@ end
     location_params = {name: name, latlong: google_loc, google_place: place_id}
   end
 
+#get points of interest for location#show and welcome#search
   def getPois(latlong)
       poi = 'points_of_interest'
       rank = 'prominence'
@@ -56,6 +58,8 @@ end
     #return array of POIS [{place_id, name}]
   end
 
+
+#get directions for trips#new
   def getDirection(starting, array_of_place_ids)
     waypoints = array_of_place_ids
     waypoints = waypoints.join("|place_id:")
@@ -65,6 +69,7 @@ end
   end
 
 
+#get images for point of interest
   def getDetails(place_id)
     query = URI.encode_www_form('placeid' => place_id, 'key' => APIKEY)
     link = TextDetailsBase + query
@@ -81,7 +86,7 @@ end
   end
 
   
-
+#get starting address from text search for bookmarks page(pois#index)
   def getStart(address)
     query = query = URI.encode_www_form('query' => address, 'key' => APIKEY)
     link = TextSearchBase + query
@@ -89,6 +94,7 @@ end
     place_id = response["results"][0]["place_id"]
   end
 
+#get images for location#show
   def getImage(photoreference)
     # photoreference from output getDetails, set maxwidth to preferred size
     query = URI.encode_www_form('maxwidth' => "400", "photoreference" => photoreference, 'key' => APIKEY)
