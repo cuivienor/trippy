@@ -1,6 +1,6 @@
-<h1>Your Trips</h1>
+<h1 class="banner">Your Trips</h1>
 
-<h1><%= link_to "Your bookmarks", user_location_pois_path(@user_id, @location_id)%></h1>
+<h1><%= link_to "Your bookmarks", user_location_pois_path(@user_id, @location_id), class: "banner"%></h1>
 
 
 <% @trips.each do |trip| %>
