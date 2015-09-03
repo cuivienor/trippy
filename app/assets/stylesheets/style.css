@@ -151,9 +151,11 @@ body {
 }
 
 .ribbon {
+    background-color: rgba(0,0,0,.5);
+    padding: 10px;
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 250px;
+    height: 230px;
     white-space:nowrap;
 }
 

@@ -1,8 +1,8 @@
 <!--add dynamic location to h3 tag-->
 
-<h1 class="pure-u-1">Here's the places you've bookmarked in <%=@loc.name %></h1>
+<h1 class="pure-u-1 banner">Here's the places you've bookmarked in <%=@loc.name %></h1>
 
-    <%= form_tag new_user_location_trip_path(@user, @loc), method:'get' do %>
+    <%= form_tag(new_user_location_trip_path(@user, @loc), method:'get', class: "pure-form") do %>
         <div class="ribbon">
             <% @pois.each do |poi| %>
                 <%= render partial: 'poi_google_place', locals: {poi: poi} %>
@@ -10,10 +10,10 @@
         </div>
 
         <br>
-        <%= label_tag 'Where are you staying?' %>
+        <%= label_tag 'Where are you staying?', nil, class: "banner" %>
         <%= text_field_tag 'start', nil, placeholder:'Address, City, State/Country', size: 50 %>
 
-        <%= submit_tag 'git it gurl' %>
+        <%= submit_tag 'Show me trip', class: "pure-button pure-button-primary"%>
         <br>
         <br>
         <img src="<%= @link %>" alt="">
