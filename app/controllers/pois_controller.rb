@@ -32,18 +32,22 @@ class PoisController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @location = Location.find(params[:location_id])
-    params[:place_ids].each do |place_id|
-      poiAttr = getDetails(place_id)
-      poiAttr[:location_id] = params[:location_id]
-      poi = Poi.new(poiAttr)
-      if poi.valid? 
-        poi.save
-        @user.pois << poi
-      else
-        poi = Poi.find_by(google_place: poi.google_place)
-        @user.pois << poi if !@user.pois.exists?(id: poi.id)
-      end
+    if params[:place_ids] then
+         params[:place_ids].each do |place_id|
+           poiAttr = getDetails(place_id)
+           poiAttr[:location_id] = params[:location_id]
+           poi = Poi.new(poiAttr)
+           if poi.valid? 
+             poi.save
+             @user.pois << poi
+           else
+             poi = Poi.find_by(google_place: poi.google_place)
+             @user.pois << poi if !@user.pois.exists?(id: poi.id)
+           end
+         end
+         redirect_to user_location_pois_path(@user, @location)
+    else
+      redirect_to user_path(@user)
     end
-    redirect_to user_location_pois_path(@user, @location)
   end
 end
