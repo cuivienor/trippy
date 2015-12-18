@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resources :pois
     end
   end
-
 end
 
 
