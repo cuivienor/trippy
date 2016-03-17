@@ -69,6 +69,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
+    dotenv (2.1.0)
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -188,6 +189,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma
   coffee-rails (~> 4.1.0)
+  dotenv
   httparty
   jbuilder (~> 2.0)
   jquery-rails
