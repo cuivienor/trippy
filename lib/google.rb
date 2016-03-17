@@ -1,5 +1,8 @@
 require 'httparty'
 
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 module Google
 
   require 'uri'
@@ -60,10 +63,10 @@ module Google
 
 
 #get directions for trips#new
-  def getDirection(starting, array_of_place_ids)
+  def getDirection(starting, array_of_place_ids)starting
     waypoints = array_of_place_ids
     waypoints = waypoints.join("|place_id:")
-    params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{starting}", 'mode' => 'walking', 'waypoints' => "optimize=true|place_id:#{waypoints}", 'sensor' => false, 'key' => APIKEY)
+    params = URI.encode_www_form('origin' => "place_id:#{starting}", 'destination' => "place_id:#{starting}", 'mode' => 'walking', 'waypoints' => "place_id:#{waypoints}",'key' => APIKEY)
     link = TextDirectionBase + params
     response = HTTParty.get(link)
   end

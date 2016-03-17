@@ -36,8 +36,6 @@ class LocationsController < ApplicationController
            @link = getStatic(suggs)
         end
     
-
-
     end
 
     private
