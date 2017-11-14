@@ -1,6 +1,6 @@
 # Trippy
 
-Disclaimer: This group project was done as part of a web development bootcamp at General Assembly. Original source can be found at the [group repo](https://github.com/Project-3-WDI/trippy). This fork has fixed minor issues. Original contributors are: [James Leisy](https://github.com/jimmyb0b), [Johnathan Chei](https://github.com/Krazian), [David Vinkesteijn](https://github.com/DavidVink), [Peter Petrov](https://github.com/pppetrov)
+Disclaimer: This group project was done as part of a web development bootcamp at General Assembly. Original source can be found at the [group repo](https://github.com/Project-3-WDI/trippy). This fork has fixed minor issues. Original contributors are: [James Leisy](https://github.com/jimmyb0b), [Johnathan Chei](https://github.com/Krazian), [Peter Petrov](https://github.com/pppetrov)
 
 This project was created with the traveler in mind. When traveling to a new destination, it can be cumbersome to jump between mutiple sites just to find interesting points of interest at any destination. Our app solves this problem, by allowing a user to easily search a location and get a list of spots to checkout in that area. The user can then bookmark any of these options and create a trip, or save them for later. Once a trip is created, the user will get step by step directions to each of the choosen places.
 
